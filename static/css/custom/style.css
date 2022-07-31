@@ -114,10 +114,23 @@
 .coursel-grid .col-sm-3 {
     height: 100%;
 
+
+}
+
+.cou-r {
+    height: 100%;
+    border-radius: 14px;
+    border: 1px solid;
+    border-color: #fff;
+
 }
 
 .coursel-grid .col-sm-6 {
     height: 100%;
+}
+
+.category-div {
+    padding: 2px;
 }
 
 .categories {
@@ -152,7 +165,6 @@
     font-size: 18px;
     line-height: 48px;
     color: #fff;
-    margin-left: -13px;
 }
 
 /* slider starts here */
@@ -276,6 +288,10 @@
     }
 }
 
+.hp {
+    height: 187px;
+    width: px;
+}
 
 .price-hp {
     font-size: 0.7rem;
@@ -285,6 +301,9 @@
 
 .super-deals {}
 
+.pt4 {
+    margin-top: -17px;
+}
 
 
 
@@ -589,9 +608,11 @@ li {
     font-size: 18px;
     font-weight: 700;
 }
-.divs{
+
+.divs {
     display: flex;
 }
+
 .one-div .ic {
     font-size: 32px;
     color: #EB612A;
