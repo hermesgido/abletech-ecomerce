@@ -1,0 +1,9 @@
+.container{
+    margin-top: 200px;
+}
+.btns{
+    margin-left: 440px;
+    margin-top: 79px;
+    display: flex;
+    gap: 17px;
+}
