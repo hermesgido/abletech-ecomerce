@@ -17,6 +17,10 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+    class Meta:
+        db_table = 'Users'
+        verbose_name = "USER"
+        verbose_name_plural = "USERS"
 
 ########################################################################################
 ######################sellers models####################################################
@@ -24,8 +28,8 @@ class User(AbstractUser):
 
 class seller(models.Model):
     user_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, auto_created=True, verbose_name="USER ID")
-    seller_id = models.AutoField(
+        User, on_delete=models.CASCADE,verbose_name="USER ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SELLER ID")
     Contact = models.CharField(max_length=12)
     longitude = models.CharField(max_length=200)
@@ -37,14 +41,13 @@ class seller(models.Model):
         verbose_name = "SELLER"
         verbose_name_plural = "SELLERS"
     
-    def __str__(self):
-        pass
+
 
 
 class Shop_Categories(models.Model):
     seller_id = models.ForeignKey(
-        seller, on_delete=models.CASCADE, auto_created=True, verbose_name="SELLER ID")
-    category_id = models.AutoField(
+        seller, on_delete=models.CASCADE,verbose_name="SELLER ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="CATEGORY ID")
     category_name = models.CharField(max_length=200)
 
@@ -58,16 +61,16 @@ class Shop_Categories(models.Model):
 
 class Shops(models.Model):
     shop_category_id = models.ForeignKey(
-        Shop_Categories, on_delete=models.CASCADE, auto_created=True, verbose_name="SHOP CATEGORY ID")
-    shop_id = models.AutoField(
+        Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SHOP ID")
-    shop_name = models.CharField(max_length=12)
+    shop_name = models.CharField(max_length=200)
     longitude = models.CharField(max_length=200)
     latitude = models.CharField(max_length=200)
     address = models.CharField(max_length=10)
     Contact = models.CharField(max_length=12)
     registered_Date = models.DateField()
-    logo = models.ImageField(upload_to='seller logo/', blank=True)
+    logo = models.ImageField(upload_to='seller logo', blank=True)
 
     class Meta:
         db_table = 'shops'
@@ -80,12 +83,12 @@ class Shops(models.Model):
 
 class Sub_shop_Categories(models.Model):
     shop_category_id = models.ForeignKey(
-        Shop_Categories, on_delete=models.CASCADE, auto_created=True, verbose_name="SHOP CATEGORY ID")
-    sub_category_id = models.AutoField(
+        Shop_Categories, on_delete=models.CASCADE,verbose_name="SHOP CATEGORY ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SUB CATEGORY ID")
     sub_category_name = models.CharField(max_length=200)
     picture = models.ImageField(
-        upload_to='ShopSubCategoryPicture/', blank=True)
+        upload_to='ShopSubCategoryPicture', blank=True)
 
     class Meta:
         db_table = 'sub_categories'
@@ -95,37 +98,15 @@ class Sub_shop_Categories(models.Model):
     def __str__(self):
             return self.sub_category_name
 
-
-class Cart(models.Model):
-    cart_id = models.AutoField(
-        primary_key=True, auto_created=True, verbose_name="CART ID")
-    product_id = models.CharField(max_length=200)
-    unit_Price = models.DecimalField(max_digits=6, decimal_places=2)
-    quantity = models.IntegerField()
-
-    @property
-    def Total(self):
-        total_Price = self.Unit_Price * self.quantity
-        return total_Price
-
-    class Meta:
-        db_table = 'carts'
-        verbose_name = "CART"
-        verbose_name_plural = "CARTS"
-        
-    def __str__(self):
-        pass
-
-
 class Product(models.Model):
+    shop_category_id = models.ForeignKey(
+        Shop_Categories, on_delete=models.CASCADE,verbose_name="SHOP CATEGORY ID",default = 1)
     sub_category_id = models.ForeignKey(
-        Sub_shop_Categories, on_delete=models.CASCADE, auto_created=True, verbose_name="SUB CATEGORY ID")
-    cart_id = models.ForeignKey(
-        Cart, on_delete=models.CASCADE, auto_created=True, verbose_name="CART ID")
-    product_id = models.AutoField(
+        Sub_shop_Categories, on_delete=models.CASCADE,verbose_name="SUB CATEGORY ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="PRODUCT ID")
     product_name = models.CharField(max_length=200)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.IntegerField()
     posted_Date = models.DateTimeField()
     description = models.TextField()
     manufactured_Date = models.DateField()
@@ -140,14 +121,33 @@ class Product(models.Model):
         return self.product_name
 
 
+class Cart(models.Model):
+    id = models.AutoField(
+        primary_key=True, auto_created=True, verbose_name="CART ID")
+    product_id = models.ForeignKey(Product,verbose_name= "PRODUCT ID",on_delete = models.CASCADE)
+    unit_Price = models.IntegerField()
+    quantity = models.IntegerField()
+
+    @property
+    def Total(self):
+        total_Price = self.Unit_Price * self.quantity
+        return total_Price
+
+    class Meta:
+        db_table = 'carts'
+        verbose_name = "CART"
+        verbose_name_plural = "CARTS"
+        
+    def __str__(self):
+        pass
 class Product_Picture(models.Model):
     product_id = models.ForeignKey(
-        Product, on_delete=models.CASCADE, auto_created=True, verbose_name="PRODUCT ID")
-    picture_id = models.AutoField(
+        Product, on_delete=models.CASCADE, verbose_name="PRODUCT ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="PICTURE ID")
     picture_name = models.CharField(max_length=200)
     product_picture = models.ImageField(
-        upload_to='ProductPicture/', blank=True)
+        upload_to='ProductPicture', blank=True)
 
     class Meta:
         db_table = 'product_pictures'
@@ -157,8 +157,8 @@ class Product_Picture(models.Model):
 
 class Product_Attribute(models.Model):
     product_id = models.ForeignKey(
-        Product, on_delete=models.CASCADE, auto_created=True, verbose_name="PRODUCT ID")
-    attribute_id = models.AutoField(
+        Product, on_delete=models.CASCADE, verbose_name="PRODUCT ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="ATTRIBUTE ID")
     attribute_name = models.CharField(max_length=200)
     value = models.TextField()
@@ -175,8 +175,8 @@ class Product_Attribute(models.Model):
 
 class Buyer(models.Model):
     user_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, auto_created=True, verbose_name="USER ID")
-    buyer_id = models.AutoField(
+        User, on_delete=models.CASCADE, verbose_name="USER ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="BUYER ID")
     buyer_name = models.CharField(max_length=200)
     contact = models.CharField(max_length=12)
@@ -192,15 +192,15 @@ class Buyer(models.Model):
         
         def __str__(self):
             return self.buyer_name
-# 33
+# 
 
 
 class Order(models.Model):
     buyer_order = models.ForeignKey(
-        Buyer, on_delete=models.CASCADE, auto_created=True, verbose_name="BUYER ORDER ID")
+        Buyer, on_delete=models.CASCADE, verbose_name="BUYER ORDER ID")
     cart = models.OneToOneField(
         Cart, on_delete=models.CASCADE, auto_created=True, verbose_name="CART ID")
-    order_id = models.AutoField(
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="ORDER ID", unique=True)
     cutomer_id = models.CharField(max_length=200)
     created_Date = models.DateTimeField(auto_now_add=True)
@@ -216,7 +216,7 @@ class Order(models.Model):
 class Delivery_Details(models.Model):
     order_id = models.OneToOneField(
         Order, on_delete=models.CASCADE, auto_created=True, verbose_name="ORDER ID")
-    delivery_id = models.AutoField(
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="DERIVERY ID")
     shop_id = models.CharField(max_length=200)
     order_id = models.CharField(max_length=200)
@@ -237,8 +237,8 @@ class Delivery_Person(models.Model):
     person = models.OneToOneField(Delivery_Details, on_delete=models.CASCADE,
                                   auto_created=True, verbose_name="DELIVERY DETAIL ID")
     user_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, auto_created=True, verbose_name="USER ID")
-    delivery_Person_id = models.AutoField(
+        User, on_delete=models.CASCADE, verbose_name="USER ID")
+    id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="DELIVERY PERSON ID")
     Contact = models.CharField(max_length=12)
     longitude = models.CharField(max_length=200)
