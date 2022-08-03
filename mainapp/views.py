@@ -5,17 +5,13 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 # Create your views here.
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 763ca3165f5393820508f81b1e419a6a84c1d271
 def home(request):
     
    
     return render(request, "index.html")
 
 def signup(request):
-<<<<<<< HEAD
     form = UserRegForm()
     myUser = User.objects.all()
     if request.method == "POST":
@@ -50,9 +46,7 @@ def signup(request):
             messages.success(request, "successfull registered")
             return redirect(signin)
 
-=======
     
->>>>>>> 763ca3165f5393820508f81b1e419a6a84c1d271
     return render(request, "register.html")
 
 
