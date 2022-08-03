@@ -21,29 +21,40 @@
                         <div class="login-title">
                             <h2 class="text-center mycolour">SignupTo AbleTech</h2>
                         </div>
-                        <form action="" name="registerForm" onsubmit="return validateForm()">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-dismissible alert-danger 
+                        text-capitalize text-center ">
+                            {{message}}
+                        </div>
+
+                        {% endfor %}
+                        
+                        {% endif %}
+                        <form action="signup" name="registerForm" method="POST" >
+                            {% csrf_token %}
                             <div class="input-group custom">
-                                <input type="text" class="form-control form-control-lg"
+                                <input type="text" class="form-control form-control-lg" name="username"
                                   name="username"  placeholder="Enter Username" />
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>
                             </div>
                             <div class="input-group custom">
-                                <input type="text" class="form-control form-control-lg" placeholder="Email" />
+                                <input type="text" name="email" class="form-control form-control-lg" placeholder="Email" />
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>
                             </div>
                             <div class="input-group custom">
-                                <input type="password" class="form-control form-control-lg"
+                                <input type="password" class="form-control form-control-lg" name="password"
                                     placeholder="Password" />
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
                                 </div>
                             </div>
                             <div class="input-group custom">
-                                <input type="password" class="form-control form-control-lg"
+                                <input type="password" class="form-control form-control-lg" name="password1"
                                     placeholder="Confirm Password" />
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
@@ -57,7 +68,7 @@
                                         use code for form submit
                                         <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
                                     -->
-                                        <input class="btn  mybg btn-lg btn-block" href="index.html" value="Sign In" type="submit">
+                                        <input class="btn  mybg btn-lg btn-block"  value="Signup" type="submit">
                                     </div>
                                     <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">
                                         OR

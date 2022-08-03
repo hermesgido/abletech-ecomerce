@@ -1,743 +1,1250 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<style>
+  .products2 {
+    gap: 10px;
+  }
 
-{% block content %}
-
-<div class="container text-capitalize  mt-4">
-    <div class="row coursel-grid ">
-        <div class="col-sm-3 cou-r d-none d-md-block bg-body">
-   <div class="category-div shadow-sm">
-    <div class="category-title px-2">
-        <p>
+  .heading p {
+    font-size: 28px;
+    font-weight: 700;
+    color: tomato;
+    background-color: #fff;
+  }
+  .heading  {
+    
+    background-color: #fff;
+  }
+</style>
+<div class="container text-capitalize mt-4">
+  <div class="row coursel-grid">
+    <div class="col-sm-3 cou-r d-none d-md-block bg-body">
+      <div class="category-div shadow-sm">
+        <div class="category-title px-2">
+          <p>
             <i class="fa-solid fa-bars"></i>
             shop by categories
-        </p>
+          </p>
+        </div>
+        <hr />
+        <div class="categories d-block justify-content-start">
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href="">
+              Phones & telecomunication
+            </a>
+          </div>
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href=""> Consumer electronics </a>
+          </div>
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href="">
+              beauty, heatlth and hair
+            </a>
+          </div>
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href=""> Watch & Jewelry </a>
+          </div>
+
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href="">
+              Automobile Accessory & T
+            </a>
+          </div>
+
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href=""> Kids & Toys </a>
+          </div>
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href=""> Home & Appliances </a>
+          </div>
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href=""> Computer & Office </a>
+          </div>
+          <div class="category-item">
+            <i class="fa-solid fa-shirt"></i>
+            <a class="text-decoration-none" href=""> Phones & Tel </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <hr>
-    <div class="categories d-block justify-content-start">
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Phones & telecomunication
-            </a>
-        </div>
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Consumer electronics
-            </a>
-        </div>
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                beauty, heatlth and hair
-            </a>
-        </div>
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Watch & Jewelry
+    <div class="col-sm-6">
+      <!-- slide.............starts here -->
 
-            </a>
+      <div id="banner" style="height: 160px" class="bg-secondary">
+        <div
+          id="mainBanner"
+          class="carousel slide"
+          data-ride="carousel"
+          data-interval="7000"
+        >
+          <ol class="carousel-indicators">
+            <li data-target="#mainBanner" data-slide-to="0" class="active"></li>
+            <li data-target="#mainBanner" data-slide-to="1"></li>
+            <li data-target="#mainBanner" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="p-4 bounceIn"></div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-4">
+                <h3 class="bounceIn"></h3>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-4 bounceIn"></div>
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#mainBanner"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#mainBanner"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+      </div>
+      <!-- slider ends here........... -->
 
+      <!--weekly product cards-->
 
-
-
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Automobile Accessory & T
-            </a>
+      <div
+        class="container bg-white text-dark border-3 my-1 py-1 d-none d-md-block"
+        style="position: relative"
+      >
+        <div
+          class="super-deals col-md-12 text-capitalize d-flex justify-content-between mt-2"
+        >
+          <div class="sec1">
+            <p>SuperDeals</p>
+          </div>
+          <a class="text-decoration-none text-dark" href="">view more</a>
+          <div class="sec1"></div>
         </div>
+        <div
+          class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3"
+        >
+          <div class="hp">
+            <div class="card h-100 shadow-sm">
+              <a href="#">
+                <img
+                  src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
+                  class="card-img-top"
+                  alt="product.title"
+                />
+              </a>
 
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Kids & Toys
-            </a>
-        </div>
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Home & Appliances
-            </a>
-        </div>
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Computer & Office
-            </a>
-        </div>
-        <div class="category-item">
-            <i class="fa-solid fa-shirt"></i>
-            <a class=" text-decoration-none" href="">
-                Phones & Tel
+              <div class="label-top shadow-sm">
+                <a class="text-white" href="#">asus</a>
+              </div>
+              <div class="card-body">
+                <p class="price-hp">TZS 678,000/=</p>
+                <span class="text-muted">568 Sold</span>
+              </div>
+            </div>
+          </div>
 
-            </a>
+          <div class="hp">
+            <div class="card h-100 shadow-sm">
+              <a href="#">
+                <img
+                  src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
+                  class="card-img-top"
+                  alt="product.title"
+                />
+              </a>
+
+              <div class="label-top shadow-sm">
+                <a class="text-white" href="#">asus</a>
+              </div>
+              <div class="card-body">
+                <p class="price-hp">TZS 678,000/=</p>
+                <span>568 Sold</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hp">
+            <div class="card h-100 shadow-sm">
+              <a href="#">
+                <img
+                  src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
+                  class="card-img-top"
+                  alt="product.title"
+                />
+              </a>
+
+              <div class="label-top shadow-sm">
+                <a class="text-white" href="#">asus</a>
+              </div>
+              <div class="card-body">
+                <p class="price-hp">TZS 678,000/=</p>
+                <span>568 Sold</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hp">
+            <div class="card h-100 shadow-sm">
+              <a href="#">
+                <img
+                  src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
+                  class="card-img-top"
+                  alt="product.title"
+                />
+              </a>
+
+              <div class="label-top shadow-sm">
+                <a class="text-white" href="#">asus</a>
+              </div>
+              <div class="card-body">
+                <p class="price-hp">TZS 678,000/=</p>
+                <span>568 Sold</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-   </div>
-        </div>
-        <div class="col-sm-6 ">
-
-            <!-- slide.............starts here -->
-
-            <div id="banner" style="height: 160px" class="bg-secondary">
-                <div id="mainBanner" class="carousel slide" data-ride="carousel" data-interval="7000">
-                    <ol class="carousel-indicators">
-                        <li data-target="#mainBanner" data-slide-to="0" class="active"></li>
-                        <li data-target="#mainBanner" data-slide-to="1"></li>
-                        <li data-target="#mainBanner" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="p-4 bounceIn"></div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="p-4">
-                                <h3 class="bounceIn"></h3>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="p-4 bounceIn"></div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#mainBanner" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#mainBanner" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+    <div class="col-sm-3 d-none d-md-block">
+      <div class="card-box height-100-p pd-20 min-height-200px">
+        <div class="d-flex justify-content-between pb-10">
+          <div class="h5 mb-0">Top Shops</div>
+          <div class="dropdown">
+            <a
+              class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+              data-color="#1b3133"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              style="color: rgb(27, 49, 51)"
+            >
+              <i class="dw dw-more"></i>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+            >
+              <a class="dropdown-item" href="#"
+                ><i class="dw dw-eye"></i> View</a
+              >
+              <a class="dropdown-item" href="#"
+                ><i class="dw dw-edit2"></i> Edit</a
+              >
+              <a class="dropdown-item" href="#"
+                ><i class="dw dw-delete-3"></i> Delete</a
+              >
             </div>
-            <!-- slider ends here........... -->
-
-
-            <!--weekly product cards-->
-
-            <div class="container bg-trasparent my-1 py-1 d-none d-md-block" style="position: relative ">
-                <div class="super-deals col-md-12 text-capitalize d-flex justify-content-between mt-2">
-                    <div class="sec1">
-                        <p>SuperDeals</p>
-                    </div>
-                    <a class=" text-decoration-none text-dark " href="">view more</a>
-                    <div class="sec1"></div>
-                </div>
-                <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-
-                    <div class="col hp">
-                        <div class="card h-100 shadow-sm">
-                            <a href="#">
-                                <img src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
-                                    class="card-img-top" alt="product.title" />
-                            </a>
-
-                            <div class="label-top shadow-sm">
-                                <a class="text-white" href="#">asus</a>
-                            </div>
-                            <div class="card-body">
-                                <p class="price-hp">TZS 678,000/=</p>
-                                <span class=" text-muted ">568 Sold</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col hp">
-                        <div class="card h-100 shadow-sm">
-                            <a href="#">
-                                <img src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
-                                    class="card-img-top" alt="product.title" />
-                            </a>
-
-                            <div class="label-top shadow-sm">
-                                <a class="text-white" href="#">asus</a>
-                            </div>
-                            <div class="card-body">
-                                <p class="price-hp">TZS 678,000/=</p>
-                                <span>568 Sold</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col hp">
-                        <div class="card h-100 shadow-sm">
-                            <a href="#">
-                                <img src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
-                                    class="card-img-top" alt="product.title" />
-                            </a>
-
-                            <div class="label-top shadow-sm">
-                                <a class="text-white" href="#">asus</a>
-                            </div>
-                            <div class="card-body">
-                                <p class="price-hp">TZS 678,000/=</p>
-                                <span>568 Sold</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col hp">
-                        <div class="card h-100 shadow-sm">
-                            <a href="#">
-                                <img src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg"
-                                    class="card-img-top" alt="product.title" />
-                            </a>
-
-                            <div class="label-top shadow-sm">
-                                <a class="text-white" href="#">asus</a>
-                            </div>
-                            <div class="card-body">
-                                <p class="price-hp">TZS 678,000/=</p>
-                                <span>568 Sold</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
+          </div>
         </div>
-        <div class="col-sm-3 d-none d-md-block">
-
-
-
-            <div class="card-box height-100-p pd-20 min-height-200px">
-                <div class="d-flex justify-content-between pb-10">
-                    <div class="h5 mb-0">Top Shops</div>
-                    <div class="dropdown">
-                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                            data-color="#1b3133" href="#" role="button" data-toggle="dropdown"
-                            style="color: rgb(27, 49, 51);">
-                            <i class="dw dw-more"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                            <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-                            <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-                        </div>
-                    </div>
+        <div class="user-list">
+          <ul class="">
+            <li class="d-flex align-items-center justify-content-between pt4">
+              <div class="name-avatar d-flex align-items-center pr-2">
+                <div class="avatar mr-2 flex-shrink-0">
+                  <img
+                    src="/static/images/product1.jpg"
+                    class="border-radius-100 box-shadow"
+                    width="50"
+                    height="50"
+                    alt=""
+                  />
                 </div>
-                <div class="user-list">
-                    <ul class="">
-                        <li class="d-flex align-items-center justify-content-between pt4">
-                            <div class="name-avatar d-flex align-items-center pr-2">
-                                <div class="avatar mr-2 flex-shrink-0">
-                                    <img src="/static/images/product1.jpg" class="border-radius-100 box-shadow"
-                                        width="50" height="50" alt="">
-                                </div>
-                                <div class="txt">
-                                    <span class="badge badge-pill badge-sm mx-2" data-bgcolor="#e7ebf5"
-                                        data-color="#265ed7"
-                                        style="color: rgb(38, 94, 215); background-color: rgb(231, 235, 245);">4.9</span>
-                                    <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
-                                    <div class="font-12 weight-500 mx-2" data-color="#b2b1b6"
-                                        style="color: rgb(178, 177, 182);">
-                                        Kariakoo
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-
-
-                        <li class="d-flex align-items-center justify-content-between pt4">
-                            <div class="name-avatar d-flex align-items-center pr-2">
-                                <div class="avatar mr-2 flex-shrink-0">
-                                    <img src="/static/images/product1.jpg" class="border-radius-100 box-shadow"
-                                        width="50" height="50" alt="">
-                                </div>
-                                <div class="txt">
-                                    <span class="badge badge-pill badge-sm mx-2" data-bgcolor="#e7ebf5"
-                                        data-color="#265ed7"
-                                        style="color: rgb(38, 94, 215); background-color: rgb(231, 235, 245);">4.9</span>
-                                    <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
-                                    <div class="font-12 weight-500 mx-2" data-color="#b2b1b6"
-                                        style="color: rgb(178, 177, 182);">
-                                        Kariakoo
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li class="d-flex align-items-center justify-content-between pt4">
-                            <div class="name-avatar d-flex align-items-center pr-2">
-                                <div class="avatar mr-2 flex-shrink-0">
-                                    <img src="/static/images/product1.jpg" class="border-radius-100 box-shadow"
-                                        width="50" height="50" alt="">
-                                </div>
-                                <div class="txt">
-                                    <span class="badge badge-pill badge-sm mx-2" data-bgcolor="#e7ebf5"
-                                        data-color="#265ed7"
-                                        style="color: rgb(38, 94, 215); background-color: rgb(231, 235, 245);">4.9</span>
-                                    <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
-                                    <div class="font-12 weight-500 mx-2" data-color="#b2b1b6"
-                                        style="color: rgb(178, 177, 182);">
-                                        Kariakoo
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li class="d-flex align-items-center justify-content-between pt4">
-                            <div class="name-avatar d-flex align-items-center pr-2">
-                                <div class="avatar mr-2 flex-shrink-0">
-                                    <img src="/static/images/product1.jpg" class="border-radius-100 box-shadow"
-                                        width="50" height="50" alt="">
-                                </div>
-                                <div class="txt">
-                                    <span class="badge badge-pill badge-sm mx-2" data-bgcolor="#e7ebf5"
-                                        data-color="#265ed7"
-                                        style="color: rgb(38, 94, 215); background-color: rgb(231, 235, 245);">4.9</span>
-                                    <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
-                                    <div class="font-12 weight-500 mx-2" data-color="#b2b1b6"
-                                        style="color: rgb(178, 177, 182);">
-                                        Kariakoo
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li class="d-flex align-items-center justify-content-between pt4">
-                            <div class="name-avatar d-flex align-items-center pr-2">
-                                <div class="avatar mr-2 flex-shrink-0">
-                                    <img src="/static/images/product1.jpg" class="border-radius-100 box-shadow"
-                                        width="50" height="50" alt="">
-                                </div>
-                                <div class="txt">
-                                    <span class="badge badge-pill badge-sm mx-2" data-bgcolor="#e7ebf5"
-                                        data-color="#265ed7"
-                                        style="color: rgb(38, 94, 215); background-color: rgb(231, 235, 245);">4.9</span>
-                                    <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
-                                    <div class="font-12 weight-500 mx-2" data-color="#b2b1b6"
-                                        style="color: rgb(178, 177, 182);">
-                                        Kariakoo
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                    </ul>
+                <div class="txt">
+                  <span
+                    class="badge badge-pill badge-sm mx-2"
+                    data-bgcolor="#e7ebf5"
+                    data-color="#265ed7"
+                    style="
+                      color: rgb(38, 94, 215);
+                      background-color: rgb(231, 235, 245);
+                    "
+                    >4.9</span
+                  >
+                  <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
+                  <div
+                    class="font-12 weight-500 mx-2"
+                    data-color="#b2b1b6"
+                    style="color: rgb(178, 177, 182)"
+                  >
+                    Kariakoo
+                  </div>
                 </div>
-            </div>
+              </div>
+            </li>
 
-
-
+            <li class="d-flex align-items-center justify-content-between pt4">
+              <div class="name-avatar d-flex align-items-center pr-2">
+                <div class="avatar mr-2 flex-shrink-0">
+                  <img
+                    src="/static/images/product1.jpg"
+                    class="border-radius-100 box-shadow"
+                    width="50"
+                    height="50"
+                    alt=""
+                  />
+                </div>
+                <div class="txt">
+                  <span
+                    class="badge badge-pill badge-sm mx-2"
+                    data-bgcolor="#e7ebf5"
+                    data-color="#265ed7"
+                    style="
+                      color: rgb(38, 94, 215);
+                      background-color: rgb(231, 235, 245);
+                    "
+                    >4.9</span
+                  >
+                  <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
+                  <div
+                    class="font-12 weight-500 mx-2"
+                    data-color="#b2b1b6"
+                    style="color: rgb(178, 177, 182)"
+                  >
+                    Kariakoo
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-between pt4">
+              <div class="name-avatar d-flex align-items-center pr-2">
+                <div class="avatar mr-2 flex-shrink-0">
+                  <img
+                    src="/static/images/product1.jpg"
+                    class="border-radius-100 box-shadow"
+                    width="50"
+                    height="50"
+                    alt=""
+                  />
+                </div>
+                <div class="txt">
+                  <span
+                    class="badge badge-pill badge-sm mx-2"
+                    data-bgcolor="#e7ebf5"
+                    data-color="#265ed7"
+                    style="
+                      color: rgb(38, 94, 215);
+                      background-color: rgb(231, 235, 245);
+                    "
+                    >4.9</span
+                  >
+                  <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
+                  <div
+                    class="font-12 weight-500 mx-2"
+                    data-color="#b2b1b6"
+                    style="color: rgb(178, 177, 182)"
+                  >
+                    Kariakoo
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-between pt4">
+              <div class="name-avatar d-flex align-items-center pr-2">
+                <div class="avatar mr-2 flex-shrink-0">
+                  <img
+                    src="/static/images/product1.jpg"
+                    class="border-radius-100 box-shadow"
+                    width="50"
+                    height="50"
+                    alt=""
+                  />
+                </div>
+                <div class="txt">
+                  <span
+                    class="badge badge-pill badge-sm mx-2"
+                    data-bgcolor="#e7ebf5"
+                    data-color="#265ed7"
+                    style="
+                      color: rgb(38, 94, 215);
+                      background-color: rgb(231, 235, 245);
+                    "
+                    >4.9</span
+                  >
+                  <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
+                  <div
+                    class="font-12 weight-500 mx-2"
+                    data-color="#b2b1b6"
+                    style="color: rgb(178, 177, 182)"
+                  >
+                    Kariakoo
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-between pt4">
+              <div class="name-avatar d-flex align-items-center pr-2">
+                <div class="avatar mr-2 flex-shrink-0">
+                  <img
+                    src="/static/images/product1.jpg"
+                    class="border-radius-100 box-shadow"
+                    width="50"
+                    height="50"
+                    alt=""
+                  />
+                </div>
+                <div class="txt">
+                  <span
+                    class="badge badge-pill badge-sm mx-2"
+                    data-bgcolor="#e7ebf5"
+                    data-color="#265ed7"
+                    style="
+                      color: rgb(38, 94, 215);
+                      background-color: rgb(231, 235, 245);
+                    "
+                    >4.9</span
+                  >
+                  <div class="font-14 weight-600 mx-2">Mr UK Electronics</div>
+                  <div
+                    class="font-12 weight-500 mx-2"
+                    data-color="#b2b1b6"
+                    style="color: rgb(178, 177, 182)"
+                  >
+                    Kariakoo
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-
+      </div>
     </div>
+  </div>
 </div>
 
 <!--weekely deals-->
 
-
-
 <div class="container">
-    <div class="heading d-flex justify-content-between mt-2  p-2 text-capitalize">
-        <p class="">weekly deals</p>
-        <a href="" class="text-decoration-none text-dark text-muted">view more</a>
+  <div class="heading d-flex justify-content-between mt-2 p-2 text-capitalize">
+    <p class="vbn">weekly deals</p>
+    <a href="" class="text-decoration-none text-dark text-muted">view more</a>
+  </div>
+
+  <div class="d-flex flex-wrap">
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="d-flex justify-content-sm-around flex-wrap">
-        <div class="col-sm-3 2products">
 
-            <div class="card product-card">
-
-                <div class="image-container">
-
-                    <div class="first">
-
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <span class="discount">-25%</span>
-                            <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                        </div>
-                    </div>
-
-                    <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-                </div>
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between ">
-
-                        <h5 class="dress-name">Lenovo Smart watch
-                            <br><span class="text-muted pt-1">1623 Orders</span>
-                        </h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">45,000Tsh</span>
-                            <small class="old-price text-right">Tsh 57,000/=</small>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div>
-                            <i class="fa fa-star-o rating-star"></i>
-                            <span class="rating-number text-danger">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (3.9)
-                            </span>
-                        </div>
-                        <span class="buy">More</span>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
         <div class="card product-card">
-
-            <div class="image-container">
-
-                <div class="first">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <span class="discount">-25%</span>
-                        <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                    </div>
-                </div>
-
-                <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-            </div>
-            <div class="product-detail-container p-2">
-
-                <div class="d-flex justify-content-between ">
-
-                    <h5 class="dress-name">Lenovo Smart watch
-                        <br><span class="text-muted pt-1">1623 Orders</span>
-                    </h5>
-                    <div class="d-flex flex-column mb-2">
-
-                        <span class="new-price">45,000Tsh</span>
-                        <small class="old-price text-right">Tsh 57,000/=</small>
-                    </div>
-
-                </div>
-                <div class="d-flex justify-content-between align-items-center pt-1">
-                    <div>
-                        <i class="fa fa-star-o rating-star"></i>
-                        <span class="rating-number text-danger">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            (3.9)
-                        </span>
-                    </div>
-                    <span class="buy">More</span>
-                </div>
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
             </div>
 
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
         </div>
 
-
-
-
-        <div class="col-sm-3">
-            <div class="card product-card">
-
-                <div class="image-container">
-
-                    <div class="first">
-
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <span class="discount">-25%</span>
-                            <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                        </div>
-                    </div>
-
-                    <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-                </div>
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between ">
-
-                        <h5 class="dress-name">Lenovo Smart watch
-                            <br><span class="text-muted pt-1">1623 Orders</span>
-                        </h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">45,000Tsh</span>
-                            <small class="old-price text-right">Tsh 57,000/=</small>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div>
-                            <i class="fa fa-star-o rating-star"></i>
-                            <span class="rating-number text-danger">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (3.9)
-                            </span>
-                        </div>
-                        <span class="buy">More</span>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
         <div class="card product-card">
-
-            <div class="image-container">
-
-                <div class="first">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <span class="discount">-25%</span>
-                        <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                    </div>
-                </div>
-
-                <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-            </div>
-            <div class="product-detail-container p-2">
-
-                <div class="d-flex justify-content-between ">
-
-                    <h5 class="dress-name">Lenovo Smart watch
-                        <br><span class="text-muted pt-1">1623 Orders</span>
-                    </h5>
-                    <div class="d-flex flex-column mb-2">
-
-                        <span class="new-price">45,000Tsh</span>
-                        <small class="old-price text-right">Tsh 57,000/=</small>
-                    </div>
-
-                </div>
-                <div class="d-flex justify-content-between align-items-center pt-1">
-                    <div>
-                        <i class="fa fa-star-o rating-star"></i>
-                        <span class="rating-number text-danger">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            (3.9)
-                        </span>
-                    </div>
-                    <span class="buy">More</span>
-                </div>
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
             </div>
 
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-3">
-            <div class="card product-card">
-
-                <div class="image-container">
-
-                    <div class="first">
-
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <span class="discount">-25%</span>
-                            <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                        </div>
-                    </div>
-
-                    <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-                </div>
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between ">
-
-                        <h5 class="dress-name">Lenovo Smart watch
-                            <br><span class="text-muted pt-1">1623 Orders</span>
-                        </h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">45,000Tsh</span>
-                            <small class="old-price text-right">Tsh 57,000/=</small>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div>
-                            <i class="fa fa-star-o rating-star"></i>
-                            <span class="rating-number text-danger">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (3.9)
-                            </span>
-                        </div>
-                        <span class="buy">More</span>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-        <div class="card product-card">
-
-            <div class="image-container">
-
-                <div class="first">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <span class="discount">-25%</span>
-                        <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                    </div>
-                </div>
-
-                <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-            </div>
-            <div class="product-detail-container p-2">
-
-                <div class="d-flex justify-content-between ">
-
-                    <h5 class="dress-name">Lenovo Smart watch
-                        <br><span class="text-muted pt-1">1623 Orders</span>
-                    </h5>
-                    <div class="d-flex flex-column mb-2">
-
-                        <span class="new-price">45,000Tsh</span>
-                        <small class="old-price text-right">Tsh 57,000/=</small>
-                    </div>
-
-                </div>
-                <div class="d-flex justify-content-between align-items-center pt-1">
-                    <div>
-                        <i class="fa fa-star-o rating-star"></i>
-                        <span class="rating-number text-danger">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            (3.9)
-                        </span>
-                    </div>
-                    <span class="buy">More</span>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-sm-3">
-            <div class="card product-card">
-
-                <div class="image-container">
-
-                    <div class="first">
-
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <span class="discount">-25%</span>
-                            <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                        </div>
-                    </div>
-
-                    <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-                </div>
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between ">
-
-                        <h5 class="dress-name">Lenovo Smart watch
-                            <br><span class="text-muted pt-1">1623 Orders</span>
-                        </h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">45,000Tsh</span>
-                            <small class="old-price text-right">Tsh 57,000/=</small>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div>
-                            <i class="fa fa-star-o rating-star"></i>
-                            <span class="rating-number text-danger">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                (3.9)
-                            </span>
-                        </div>
-                        <span class="buy">More</span>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-        <div class="card product-card">
-
-            <div class="image-container">
-
-                <div class="first">
-
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <span class="discount">-25%</span>
-                        <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-                    </div>
-                </div>
-
-                <img src="./static/images/product1.webp" class="img-fluid rounded thumbnail-image">
-            </div>
-            <div class="product-detail-container p-2">
-
-                <div class="d-flex justify-content-between ">
-
-                    <h5 class="dress-name">Lenovo Smart watch
-                        <br><span class="text-muted pt-1">1623 Orders</span>
-                    </h5>
-                    <div class="d-flex flex-column mb-2">
-
-                        <span class="new-price">45,000Tsh</span>
-                        <small class="old-price text-right">Tsh 57,000/=</small>
-                    </div>
-
-                </div>
-                <div class="d-flex justify-content-between align-items-center pt-1">
-                    <div>
-                        <i class="fa fa-star-o rating-star"></i>
-                        <span class="rating-number text-danger">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            (3.9)
-                        </span>
-                    </div>
-                    <span class="buy">More</span>
-                </div>
-            </div>
-
-
-
-        </div>
-
+      </div>
     </div>
+
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="container">
+  <br />
 
+  <div class="d-flex flex-wrap">
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
 
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
 
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
 
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
 
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-{% endblock  %}
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container bg-white">
+  <div class="heading d-flex justify-content-between mt-2 p-2 text-capitalize">
+    <p class="">weekly deals</p>
+    <a href="" class="text-decoration-none text-dark text-muted">view more</a>
+  </div>
+
+  <div class="d-flex flex-wrap">
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="products2 d-flex">
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <div class="image-container">
+            <div class="first">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="discount">-25%</span>
+                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
+              </div>
+            </div>
+
+            <img
+              src="./static/images/product1.webp"
+              class="img-fluid rounded thumbnail-image"
+            />
+          </div>
+          <div class="product-detail-container p-2">
+            <div class="d-flex justify-content-between">
+              <h5 class="dress-name">
+                Lenovo Smart watch <br /><span class="text-muted pt-1"
+                  >1623 Orders</span
+                >
+              </h5>
+              <div class="d-flex flex-column mb-2">
+                <span class="new-price">45,000Tsh</span>
+                <small class="old-price text-right">Tsh 57,000/=</small>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-1">
+              <div>
+                <i class="fa fa-star-o rating-star"></i>
+                <span class="rating-number text-danger">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  (3.9)
+                </span>
+              </div>
+              <span class="buy">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

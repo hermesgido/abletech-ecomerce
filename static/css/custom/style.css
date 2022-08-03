@@ -290,7 +290,7 @@
 
 .hp {
     height: 187px;
-    width: px;
+    width: 1023px;
 }
 
 .price-hp {
@@ -334,9 +334,10 @@
 
 .weekly-deals .weekly-products {}
 
-.weekly-deals .heading {
-    font-size: 18px;
+.vbn {
+    font-size: 28px;
     font-weight: 700;
+    color: tomato;
 
 }
 
@@ -630,5 +631,10 @@ li {
     .myr {
         display: none;
     }
+
+}
+
+.products2 {
+    gap: 100px;
 
 }

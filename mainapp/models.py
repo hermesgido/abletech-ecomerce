@@ -17,6 +17,7 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
     class Meta:
         db_table = 'Users'
         verbose_name = "USER"
@@ -28,7 +29,7 @@ class User(AbstractUser):
 
 class seller(models.Model):
     user_id = models.ForeignKey(
-        User, on_delete=models.CASCADE,verbose_name="USER ID")
+        User, on_delete=models.CASCADE, verbose_name="USER ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SELLER ID")
     Contact = models.CharField(max_length=12)
@@ -40,13 +41,11 @@ class seller(models.Model):
         db_table = 'sellers'
         verbose_name = "SELLER"
         verbose_name_plural = "SELLERS"
-    
-
 
 
 class Shop_Categories(models.Model):
     seller_id = models.ForeignKey(
-        seller, on_delete=models.CASCADE,verbose_name="SELLER ID")
+        seller, on_delete=models.CASCADE, verbose_name="SELLER ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="CATEGORY ID")
     category_name = models.CharField(max_length=200)
@@ -55,6 +54,7 @@ class Shop_Categories(models.Model):
         db_table = 'categories'
         verbose_name = "SHOP CATEGORY"
         verbose_name_plural = "SHOP CATEGORIES"
+
     def __str__(self):
         return self.category_name
 
@@ -76,14 +76,14 @@ class Shops(models.Model):
         db_table = 'shops'
         verbose_name = "SHOP"
         verbose_name_plural = "SHOPS"
-    
+
     def __str__(self):
         return self.shop_name
 
 
 class Sub_shop_Categories(models.Model):
     shop_category_id = models.ForeignKey(
-        Shop_Categories, on_delete=models.CASCADE,verbose_name="SHOP CATEGORY ID")
+        Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SUB CATEGORY ID")
     sub_category_name = models.CharField(max_length=200)
@@ -94,15 +94,16 @@ class Sub_shop_Categories(models.Model):
         db_table = 'sub_categories'
         verbose_name = "SUB SHOP CATEGORY"
         verbose_name_plural = "SUB SHOP CATEGORIES"
-        
+
     def __str__(self):
-            return self.sub_category_name
+        return self.sub_category_name
+
 
 class Product(models.Model):
     shop_category_id = models.ForeignKey(
-        Shop_Categories, on_delete=models.CASCADE,verbose_name="SHOP CATEGORY ID",default = 1)
+        Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID", default=1)
     sub_category_id = models.ForeignKey(
-        Sub_shop_Categories, on_delete=models.CASCADE,verbose_name="SUB CATEGORY ID")
+        Sub_shop_Categories, on_delete=models.CASCADE, verbose_name="SUB CATEGORY ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="PRODUCT ID")
     product_name = models.CharField(max_length=200)
@@ -116,7 +117,7 @@ class Product(models.Model):
         db_table = 'products'
         verbose_name = "PRODUCT"
         verbose_name_plural = "PRODUCTS"
-    
+
     def __str__(self):
         return self.product_name
 
@@ -124,7 +125,8 @@ class Product(models.Model):
 class Cart(models.Model):
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="CART ID")
-    product_id = models.ForeignKey(Product,verbose_name= "PRODUCT ID",on_delete = models.CASCADE)
+    product_id = models.ForeignKey(
+        Product, verbose_name="PRODUCT ID", on_delete=models.CASCADE)
     unit_Price = models.IntegerField()
     quantity = models.IntegerField()
 
@@ -137,9 +139,11 @@ class Cart(models.Model):
         db_table = 'carts'
         verbose_name = "CART"
         verbose_name_plural = "CARTS"
-        
+
     def __str__(self):
         pass
+
+
 class Product_Picture(models.Model):
     product_id = models.ForeignKey(
         Product, on_delete=models.CASCADE, verbose_name="PRODUCT ID")
@@ -167,6 +171,7 @@ class Product_Attribute(models.Model):
         db_table = 'product_attributes'
         verbose_name = "PRODUCT ATTRIBUTE"
         verbose_name_plural = "PRODUCT ATTRIBUTES"
+
     def __str__(self):
         return self.attribute_name
 ########################################################################################
@@ -189,10 +194,10 @@ class Buyer(models.Model):
         db_table = 'buyers'
         verbose_name = "BUYER"
         verbose_name_plural = "BUYERS"
-        
+
         def __str__(self):
             return self.buyer_name
-# 
+#
 
 
 class Order(models.Model):
@@ -209,9 +214,10 @@ class Order(models.Model):
         db_table = 'orders'
         verbose_name = "ORDER"
         verbose_name_plural = "ORDERS"
-        
+
     def __str__(self):
         pass
+
 
 class Delivery_Details(models.Model):
     order_id = models.OneToOneField(
@@ -226,12 +232,13 @@ class Delivery_Details(models.Model):
         db_table = 'delivery_details'
         verbose_name = "DELIVERY DETAIL"
         verbose_name_plural = "DELIVERY DETAILS"
-        
+
     def __str__(self):
         return self.status
 
 ##########################################################################################
 #########################Buyers models###################################################
+
 
 class Delivery_Person(models.Model):
     person = models.OneToOneField(Delivery_Details, on_delete=models.CASCADE,
@@ -251,8 +258,6 @@ class Delivery_Person(models.Model):
         db_table = 'delivery_persons'
         verbose_name = "DELIVERY PERSON"
         verbose_name_plural = "DELIVERY PERSONS"
-        
+
     def __str__(self):
         pass
-            
-    
