@@ -7,9 +7,11 @@ from django.contrib.auth import authenticate, login
 
 
 def home(request):
+    top_shops = Shops.objects.all().order_by('shop_name')[:5]
     
+    print(top_shops)
    
-    return render(request, "index.html")
+    return render(request, "index.html", {'top_shops': top_shops})
 
 def signup(request):
     form = UserRegForm()

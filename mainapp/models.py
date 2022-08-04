@@ -44,8 +44,6 @@ class seller(models.Model):
 
 
 class Shop_Categories(models.Model):
-    seller_id = models.ForeignKey(
-        seller, on_delete=models.CASCADE, verbose_name="SELLER ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="CATEGORY ID")
     category_name = models.CharField(max_length=200)
@@ -64,13 +62,13 @@ class Shops(models.Model):
         Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SHOP ID")
-    shop_name = models.CharField(max_length=200)
-    longitude = models.CharField(max_length=200)
-    latitude = models.CharField(max_length=200)
-    address = models.CharField(max_length=10)
-    Contact = models.CharField(max_length=12)
-    registered_Date = models.DateField()
-    logo = models.ImageField(upload_to='seller logo', blank=True)
+    shop_name = models.CharField(max_length=200, null=True)
+    longitude = models.CharField(max_length=200, null=True)
+    latitude = models.CharField(max_length=200, null=True)
+    address = models.CharField(max_length=10, null=True)
+    Contact = models.CharField(max_length=12, null=True)
+    registered_Date = models.DateField( null=True)
+    logo = models.ImageField(upload_to='seller logo', blank=True, null=True)
 
     class Meta:
         db_table = 'shops'
