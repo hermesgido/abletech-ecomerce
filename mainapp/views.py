@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from hamcrest import starts_with
 from .form import *
 from .models import *
 from django.contrib import messages
@@ -72,3 +73,9 @@ def dashboard(request):
 
 def admins(request):
     return render(request, "admins.html")
+
+def datafilter(request):
+    top = Shop_Categories.objects.filter(category_name__startswith = "h")
+    
+    
+    return render(request, "data.html", {'top': top})
