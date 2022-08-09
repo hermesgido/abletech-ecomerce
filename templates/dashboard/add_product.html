@@ -1,79 +1,133 @@
-{% extends "dashboard/base.html" %} {% load static %} 
-{% block title %} Add Product {% endblock %} 
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+
+{% block title %} Add Product {% endblock %}
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'scripts/plugins/dropzone/src/dropzone.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'scripts/plugins/dropzone/src/dropzone.css' %}" />
 
 
 <style>
-    .addbtn{
-        margin-left: 100px;
-        margin-top: 5px;
-    }
+  .addbtn {
+    margin-left: 100px;
+    margin-top: 5px;
+  }
 </style>
 <div class="forms">
-   
-    <div class="form-errors">
-        
-        {% for error in productForm.errors %}
-            <h6>{{error}}</h6>
-        {% endfor %}
-           {{productForm.product_price.errors}} 
-           <h6>{{productForm.product_name.errors}} </h6>
-           <h6>{{productForm.manufactured_Date.errors}} </h6>
-    </div>
-    <div class="centered-form">
-        <form action="add_product" method="POST" id="settingForm" data-sub-url="{% load_sub_categories %">
-          {% csrf_token %}
-          <h4 class="text-center my-2">Products Details</h4>
-      
-          <div class="col-md-12 col-md-6 d-md-flex d-block">
-            <div class="input-group">
-              <div class="w-100 mx-3">
-                <label for="full_name">Product Name</label>
-                {{productForm.product_name}}
-              </div>
-            </div>
-           
-            <div class="input-group">
-              <div class="w-100 mx-3">
-                <label for="user_id">Product Price</label>
-                {{productForm.price}}
-              </div>
-            </div>
+
+  <div class="form-errors">
+
+    {% for error in productForm.errors %}
+    <h6>{{error}}</h6>
+    {% endfor %}
+    {{productForm.product_price.errors}}
+    <h6>{{productForm.product_name.errors}} </h6>
+    <h6>{{productForm.manufactured_Date.errors}} </h6>
+  </div>
+  <div class="centered-form">
+    <form action="add_product" multiple enctype="multipart/form-data" method="POST" id="settingForm"
+      data-sub-url="{% load_sub_categories %">
+      {% csrf_token %}
+      <h4 class="text-center my-2">Products Details</h4>
+
+      <div class="col-md-12 col-md-6 d-md-flex d-block">
+        <div class="input-group">
+          <div class="w-100 mx-3">
+            <label for="full_name">Product Name</label>
+            {{productForm.product_name}}
           </div>
-          <div class="col-md-12 col-md-6 d-md-flex d-block">
-              <div class="input-group">
-                  <div class="w-100 mx-3 text-capitalize">
-                    <label for="shop_category_id">Manufactured Date</label>
-                    {{productForm.manufactured_Date}}
-                  </div>
-                </div>
-                <div class="input-group">
-                  <div class="w-100 mx-3 text-capitalize">
-                    <label for="sub_category">Product Brand</label>
-                    {{productForm.brand_name}}
-                  </div>
-                </div>
-           
+        </div>
+
+        <div class="input-group">
+          <div class="w-100 mx-3">
+            <label for="user_id">Product Price</label>
+            {{productForm.price}}
           </div>
-          <div class="col-md-12 col-md-6 d-md-flex d-block">
-            <div class="input-group">
-              <div class="w-100 mx-3">
-                <label for="email">Description</label>
-                {{productForm.description}}
-              </div>
-            </div>
-            
+        </div>
+      </div>
+      <div class="col-md-12 col-md-6 d-md-flex d-block">
+        <div class="input-group">
+          <div class="w-100 mx-3 text-capitalize">
+            <label for="shop_category_id">Manufactured Date</label>
+            {{productForm.manufactured_Date}}
           </div>
- 
-          <div class="col-md-12 text-center">
-            <input type="submit" value="SUBMIT" class="btn btn-primary" />
+        </div>
+        <div class="input-group">
+          <div class="w-100 mx-3 text-capitalize">
+            <label for="sub_category">Product Brand</label>
+            {{productForm.brand_name}}
           </div>
+        </div>
 
       </div>
+      <div class="col-md-12 col-md-6 d-md-flex d-block">
+        <div class="input-group">
+          <div class="w-100 mx-3">
+            <label for="email">Description</label>
+            {{productForm.description}}
+          </div>
+        </div>
+
       </div>
+
+      <div class="picture-form col-sm-12 col-md-12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="{% static 'snippets/uploader.css' %}">
+        <script src="{% static 'snippets/uploader.js' %}"> </script>
+        
+      
+        <!-- partial:index.partial.html -->
+        <div class="upload__box">
+          <div class="upload__btn-box">
+            <label class="upload__btn">
+              <p>Upload images</p>
+              <input type="file" multiple data-max_length="20" class="upload__inputfile" name="product_picture">
+            </label>
+          </div>
+          <div class="upload__img-wrap"></div>
+        </div>
+        <!-- partial -->
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="./script.js"></script>
+        
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-12 text-center">
+          <input type="submit" value="SUBMIT" class="btn btn-primary" />
+        </div>
+
+    </form>
+
+  </div>
+</div>
 <!-- 
     <br>
 <button class="btn-primary btn btn-sm"

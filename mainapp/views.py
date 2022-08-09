@@ -214,15 +214,16 @@ def add_product(request):
     pictureForm = PictureForm()
     attributeForm = Product_AttributeForm
     shop_id = Shops.objects.get(seller_id__user_id=request.user.id)
-
+    pictureForm = PictureForm()
     if request.method == "POST":
-        productForm = ProductForm(request.POST)
+        productForm = ProductForm(request.POST, request.FILES)
         if productForm.is_valid():
             product_name = productForm.cleaned_data['product_name']
             price = productForm.cleaned_data['price']
             description = productForm.cleaned_data['description']
             brand_name = productForm.cleaned_data['brand_name']
             manufactured_Date = productForm.cleaned_data['manufactured_Date']
+            pictures = request.FILES.getlist('product_picture')
             shop_id = shop_id
 
             product = Product.objects.create(
@@ -230,6 +231,11 @@ def add_product(request):
                 description=description, manufactured_Date=manufactured_Date, shop_id=shop_id
             )
             product.save()
+            
+            for pic in pictures:
+                product_pictures= Product_Picture.objects.create(
+                product_picture=pic, product_id=product)
+                product_pictures.save()
             return redirect(added_products)
 
     context = {'productForm': productForm, 'pictureForm': pictureForm,
