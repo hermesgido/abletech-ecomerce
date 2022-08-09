@@ -1,5 +1,8 @@
 from django.shortcuts import redirect, render
+<<<<<<< HEAD
 from django.db.models import Count
+=======
+>>>>>>> b9e984055fd878019a177e7aeeabdf1b8d02d37c
 from .form import *
 from .models import *
 from django.contrib import messages
