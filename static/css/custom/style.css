@@ -335,9 +335,8 @@
 .weekly-deals .weekly-products {}
 
 .vbn {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
-    color: tomato;
 
 }
 
@@ -386,7 +385,6 @@
 .dress-name {
     font-size: 13px;
     font-weight: bold;
-    width: 75%;
 }
 
 
@@ -396,9 +394,15 @@
     color: red;
 
 }
+.no-orders{
+    font-size: 10px;
+    font-weight: bold;
+    color: grey;
+    margin-top: 5px;
+}
 
 .old-price {
-    font-size: 8px;
+    font-size: 10px;
     font-weight: bold;
     color: grey;
 }

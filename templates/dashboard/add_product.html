@@ -1,0 +1,132 @@
+{% extends "dashboard/base.html" %} {% load static %} 
+{% block title %} Add Product {% endblock %} 
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'scripts/plugins/dropzone/src/dropzone.css' %}"/>
+
+
+<style>
+    .addbtn{
+        margin-left: 100px;
+        margin-top: 5px;
+    }
+</style>
+<div class="forms">
+   
+    <div class="form-errors">
+        
+        {% for error in productForm.errors %}
+            <h6>{{error}}</h6>
+        {% endfor %}
+           {{productForm.product_price.errors}} 
+           <h6>{{productForm.product_name.errors}} </h6>
+           <h6>{{productForm.manufactured_Date.errors}} </h6>
+    </div>
+    <div class="centered-form">
+        <form action="add_product" method="POST" id="settingForm" data-sub-url="{% load_sub_categories %">
+          {% csrf_token %}
+          <h4 class="text-center my-2">Products Details</h4>
+      
+          <div class="col-md-12 col-md-6 d-md-flex d-block">
+            <div class="input-group">
+              <div class="w-100 mx-3">
+                <label for="full_name">Product Name</label>
+                {{productForm.product_name}}
+              </div>
+            </div>
+           
+            <div class="input-group">
+              <div class="w-100 mx-3">
+                <label for="user_id">Product Price</label>
+                {{productForm.price}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-md-6 d-md-flex d-block">
+              <div class="input-group">
+                  <div class="w-100 mx-3 text-capitalize">
+                    <label for="shop_category_id">Manufactured Date</label>
+                    {{productForm.manufactured_Date}}
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="w-100 mx-3 text-capitalize">
+                    <label for="sub_category">Product Brand</label>
+                    {{productForm.brand_name}}
+                  </div>
+                </div>
+           
+          </div>
+          <div class="col-md-12 col-md-6 d-md-flex d-block">
+            <div class="input-group">
+              <div class="w-100 mx-3">
+                <label for="email">Description</label>
+                {{productForm.description}}
+              </div>
+            </div>
+            
+          </div>
+ 
+          <div class="col-md-12 text-center">
+            <input type="submit" value="SUBMIT" class="btn btn-primary" />
+          </div>
+
+      </div>
+      </div>
+<!-- 
+    <br>
+<button class="btn-primary btn btn-sm"
+data-toggle="modal"
+data-target="#small-modal"
+type="button">Add Atribute</button>
+    <br>
+
+    <div class="pd-10 card-box mb-30">
+        <div class="clearfix mb-20">
+            <div class="pull-left">
+                <h4 class="text-blue h4">Product Images</h4>
+            </div>
+        </div>
+        <form class="dropzone" action="#" id="my-awesome-dropzone">
+            <div class="fallback">
+                <input type="file" name="file" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="col-md-4 col-sm-12 mb-30">
+    <div class="pd-20 card-box height-100-p">
+        <div
+            class="modal fade"
+            id="small-modal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content">
+                    
+                    <div class="modal-body">
+                        <div>
+                            {{attributeForm}}
+                        </div>
+                        <div>
+                        <button class="btn btn-primary btn-sm  addbtn">Add</button>
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <input type="submit" value="SUBMIT" class="btn btn-primary" />
+      </div>
+    </form>
+</div>
+
+ -->
+{% endblock %}

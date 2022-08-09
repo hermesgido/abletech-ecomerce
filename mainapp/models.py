@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class User(AbstractUser):
+    full_name = models.CharField(max_length=200, null=True, blank=True)
     phone = models.CharField(max_length=12, blank=True)
     user_Lists = (("S", "Seller"), ("B", "Buyer"), ("D", "Delivery Person"))
     type_Of_User = models.CharField(
@@ -27,15 +28,15 @@ class User(AbstractUser):
 ######################sellers models####################################################
 
 
-class seller(models.Model):
+class Seller(models.Model):
     user_id = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="USER ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SELLER ID")
-    Contact = models.CharField(max_length=12)
-    longitude = models.CharField(max_length=200)
-    latitude = models.CharField(max_length=200)
-    address = models.CharField(max_length=10)
+    Contact = models.CharField(max_length=12, null=True)
+    longitude = models.CharField(max_length=200, null=True)
+    latitude = models.CharField(max_length=200, null=True)
+    address = models.CharField(max_length=10, null=True)
 
     class Meta:
         db_table = 'sellers'
@@ -58,16 +59,22 @@ class Shop_Categories(models.Model):
 
 
 class Shops(models.Model):
-    shop_category_id = models.ForeignKey(
-        Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID")
+
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="SHOP ID")
-    shop_name = models.CharField(max_length=200, null=True)
-    longitude = models.CharField(max_length=200, null=True)
-    latitude = models.CharField(max_length=200, null=True)
-    address = models.CharField(max_length=10, null=True)
-    Contact = models.CharField(max_length=12, null=True)
-    registered_Date = models.DateField( null=True)
+    shop_category_id = models.ForeignKey(
+        Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID", null=True, blank=True)
+    sub_category = models.ForeignKey(
+        'Sub_Categories', on_delete=models.CASCADE, verbose_name="SUB CATEGORY ID", null=True, blank=True)
+    seller_id = models.ForeignKey(
+        Seller, on_delete=models.CASCADE, verbose_name="SHOP OWNER", null=True)
+
+    shop_name = models.CharField(max_length=200, null=True, blank=True)
+    longitude = models.CharField(max_length=200, null=True, blank=True)
+    latitude = models.CharField(max_length=200, null=True, blank=True)
+    address = models.CharField(max_length=10, null=True, blank=True)
+    Contact = models.CharField(max_length=12, null=True, blank=True)
+    registered_Date = models.DateField(null=True, auto_now=True)
     logo = models.ImageField(upload_to='seller logo', blank=True, null=True)
 
     class Meta:
@@ -75,11 +82,11 @@ class Shops(models.Model):
         verbose_name = "SHOP"
         verbose_name_plural = "SHOPS"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.shop_name
 
 
-class Sub_shop_Categories(models.Model):
+class Sub_Categories(models.Model):
     shop_category_id = models.ForeignKey(
         Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID")
     id = models.AutoField(
@@ -98,18 +105,17 @@ class Sub_shop_Categories(models.Model):
 
 
 class Product(models.Model):
-    shop_category_id = models.ForeignKey(
-        Shop_Categories, on_delete=models.CASCADE, verbose_name="SHOP CATEGORY ID", default=1)
-    sub_category_id = models.ForeignKey(
-        Sub_shop_Categories, on_delete=models.CASCADE, verbose_name="SUB CATEGORY ID")
+    
     id = models.AutoField(
-        primary_key=True, auto_created=True, verbose_name="PRODUCT ID")
+        primary_key=True, auto_created=True, verbose_name="Product ID")
+    shop_id =models.ForeignKey("Shops", verbose_name=_("Shop ID"), on_delete=models.CASCADE, null=True)
+
     product_name = models.CharField(max_length=200)
-    price = models.IntegerField()
-    posted_Date = models.DateTimeField()
-    description = models.TextField()
+    price = models.IntegerField(default=0)
+    posted_Date = models.DateTimeField(auto_now_add=True)
+    description = models.TextField(blank=True)
     manufactured_Date = models.DateField()
-    brand_name = models.CharField(max_length=200)
+    brand_name = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
         db_table = 'products'
@@ -123,31 +129,30 @@ class Product(models.Model):
 class Cart(models.Model):
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="CART ID")
-    product_id = models.ForeignKey(
-        Product, verbose_name="PRODUCT ID", on_delete=models.CASCADE)
-    unit_Price = models.IntegerField()
-    quantity = models.IntegerField()
+    buyer_id = models.ForeignKey('Buyer', verbose_name='Buyer ID', null=True, on_delete=models.CASCADE)
+    products = models.ManyToManyField("Product", verbose_name=_("Products"))
+    
+    unit_Price = models.IntegerField(default=0)
+    quantity = models.IntegerField(default=0)
+    
 
     @property
     def Total(self):
         total_Price = self.Unit_Price * self.quantity
-        return total_Price
+        return str(total_Price)
 
     class Meta:
         db_table = 'carts'
         verbose_name = "CART"
         verbose_name_plural = "CARTS"
-
-    def __str__(self):
-        pass
-
+    
 
 class Product_Picture(models.Model):
     product_id = models.ForeignKey(
         Product, on_delete=models.CASCADE, verbose_name="PRODUCT ID")
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="PICTURE ID")
-    picture_name = models.CharField(max_length=200)
+    picture_name = models.CharField(max_length=200, null=True, blank=True)
     product_picture = models.ImageField(
         upload_to='ProductPicture', blank=True)
 
@@ -163,7 +168,7 @@ class Product_Attribute(models.Model):
     id = models.AutoField(
         primary_key=True, auto_created=True, verbose_name="ATTRIBUTE ID")
     attribute_name = models.CharField(max_length=200)
-    value = models.TextField()
+    value = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
         db_table = 'product_attributes'
@@ -194,19 +199,17 @@ class Buyer(models.Model):
         verbose_name_plural = "BUYERS"
 
         def __str__(self):
-            return self.buyer_name
+            return self.user_id.username + " " + "Order"
 #
 
 
 class Order(models.Model):
-    buyer_order = models.ForeignKey(
-        Buyer, on_delete=models.CASCADE, verbose_name="BUYER ORDER ID")
-    cart = models.OneToOneField(
-        Cart, on_delete=models.CASCADE, auto_created=True, verbose_name="CART ID")
+    
+    cart_id = models.OneToOneField(
+        Cart, on_delete=models.CASCADE, auto_created=True, null=True, verbose_name="Cart ID")
     id = models.AutoField(
-        primary_key=True, auto_created=True, verbose_name="ORDER ID", unique=True)
-    cutomer_id = models.CharField(max_length=200)
-    created_Date = models.DateTimeField(auto_now_add=True)
+        primary_key=True, auto_created=True, verbose_name="Order ID", unique=True)
+    created_Date = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'orders'
@@ -214,7 +217,7 @@ class Order(models.Model):
         verbose_name_plural = "ORDERS"
 
     def __str__(self):
-        pass
+        return self.cart_id.buyer_id.user_id.username
 
 
 class Delivery_Details(models.Model):

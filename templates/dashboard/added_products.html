@@ -1,0 +1,104 @@
+{% extends "dashboard/base.html" %} {% load static %}
+{% block title %} Add Product {% endblock %}
+
+{% block content %}
+
+
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix mb-20">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Recently Added Products</h4>
+
+        </div>
+
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">NO</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Added Time </th>
+                    <th scope="col">Pictures</th>
+                    <th scope="col">Specifications</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for product in products %}
+
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{product.product_name}}</td>
+                    <td>{{product.posted_Date}}</td>
+                    <td>
+                        <a href="{% url 'upload_pictures' product.id %}">
+                            <div class="fa-solid fa-plus text-blue fa2x"></div>
+                            Picture <span class="text-blue">({{product.ptp}})</span></th>
+                        </a>
+                    </td>
+                    <td>
+
+                        <div class="fa-solid fa-plus text-blue fa2x"></div>
+                        <button class="btn-primary btn btn-sm" data-toggle="modal" data-target="#small-modal"
+                            type="button">Add Atribute</button>
+                            <span class="text-blue">({{product.attrs}})</span>
+                        </th>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+<div class="col-md-4 col-sm-12 mb-30">
+    <div class="pd-20 card-box height-100-p">
+        <div class="modal fade" id="small-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                {{attributeForm}}
+
+
+
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-sm  addbtn">Add</button>
+                        </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

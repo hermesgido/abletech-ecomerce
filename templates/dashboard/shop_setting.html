@@ -1,0 +1,35 @@
+{% extends "dashboard/base.html" %} {% load static %} {% block title %} Shop
+Setting {% endblock %} {% block content %}
+
+<div class="centered-form">
+  
+  <form action="">
+    {{shopform.as_p}}
+  </form>
+</div>
+
+<!-- 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    $("#id_category").change(function(){
+        var url = $("#settingForm").attr("data-sub-url");
+        var categoryId = $(this).val();
+
+        $.ajax({
+            url : url,
+            data: {
+                'category': categoryId
+            },
+            success: function(data){
+                $("#id_subCat").html(data);
+            }
+        }
+        );
+    
+    }
+    );
+</script>
+
+{% endblock %}
+ -->

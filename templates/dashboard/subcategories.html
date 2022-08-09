@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <option value="">...</option>
+    {% for sub in sub_categories %}
+    <option value="{{sub.id}}">{{sub.sub_category_name}}</option>
+    
+    {% endfor %}
+</body>
+</html>

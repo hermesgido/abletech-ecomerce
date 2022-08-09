@@ -1,0 +1,590 @@
+{% load static %} {% load bootstrap_icons %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8" />
+    
+    <title>
+    {% block title %}
+      Admin
+    {% endblock title %}
+      </title>
+    
+
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/custom/core.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/custom/style2.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'vendors/styles/icon-font.min.css' %}"
+    />
+
+    <link rel="stylesheet" href=" {% static '/css/custom/dashboard.css' %}" />
+
+    <head>
+      <!-- reference your installed Font Awesome Free package's files here -->
+      <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    </head>
+    ...
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-GBZ3SGGX85");
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+
+  <body>
+    <div class="header dash-header">
+      <div class="header-left">
+        <div class="menu-icon"><i class="fa-solid text-white fa-bars"></i></div>
+        <div class="search-toggle-icon" data-toggle="header_search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="header-search">
+          <form>
+            <div class="form-group mb-0">
+              <i class="search-icon fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                class="form-control search-input"
+                placeholder="Search Here"
+              />
+              <div class="dropdown">
+                <a
+                  class="dropdown-toggle no-arrow"
+                  href="#"
+                  role="button"
+                  data-toggle="dropdown"
+                >
+                  <i class="ion-arrow-down-c"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label"
+                      >From</label
+                    >
+                    <div class="col-sm-12 col-md-10">
+                      <input
+                        class="form-control form-control-sm form-control-line"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">To</label>
+                    <div class="col-sm-12 col-md-10">
+                      <input
+                        class="form-control form-control-sm form-control-line"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label"
+                      >Subject</label
+                    >
+                    <div class="col-sm-12 col-md-10">
+                      <input
+                        class="form-control form-control-sm form-control-line"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <button class="btn btn-primary">Search</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="dashboard-setting user-notification">
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle no-arrow"
+              href="javascript:;"
+              data-toggle="right-sidebar"
+            >
+              <i class="text-white fa-solid fa-gear"></i>
+            </a>
+          </div>
+        </div>
+        <div class="user-notification">
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle no-arrow"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+            >
+            <i class=" text-white fa-solid fa-bell"></i>
+              <span class="badge notification-active"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="notification-list mx-h-350 customscroll">
+                <ul>
+                  
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/photo1.jpg" alt="" />
+                      <h3>Lea R. Frith</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/photo2.jpg" alt="" />
+                      <h3>Erik L. Richards</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                  
+                  
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user-info-dropdown">
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+            >
+              <span class="user-icon">
+                <img src="{% static 'images/photo1.jpg'%}" alt="" />
+              </span>
+              {% if user.is_authenticated %}
+              
+              <span class="user-name text-white text-capitalize">
+                {{request.user.username}}
+              </span>
+              {% else %}
+              <span class="user-name text-white">
+                Login
+              </span>
+              {% endif %}
+              
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+            >
+              <a class="dropdown-item" href="profile.html"
+                ><i class="dw dw-user1"></i> Profile</a
+              >
+              <a class="dropdown-item" href="profile.html"
+                ><i class="dw dw-settings2"></i> Setting</a
+              >
+              <a class="dropdown-item" href="faq.html"
+                ><i class="dw dw-help"></i> Help</a
+              >
+              <a class="dropdown-item" href="login.html"
+                ><i class="dw dw-logout"></i> Log Out</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="github-link">
+          <a href="https://github.com/dropways/deskapp" target="_blank"
+            ><img src="vendors/images/github.svg" alt=""
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-sidebar">
+      <div class="sidebar-title">
+        <h3 class="weight-600 font-16 text-blue">
+          Layout Settings
+          <span class="btn-block font-weight-400 font-12"
+            >User Interface Settings</span
+          >
+        </h3>
+        <div class="close-sidebar" data-toggle="right-sidebar-close">
+          <i class="icon-copy ion-close-round"></i>
+        </div>
+      </div>
+      <div class="right-sidebar-body customscroll">
+        <div class="right-sidebar-body-content">
+          <h4 class="weight-600 font-18 pb-10">Header Background</h4>
+          <div class="sidebar-btn-group pb-30 mb-10">
+            <a
+              href="javascript:void(0);"
+              class="btn btn-outline-primary header-white active"
+              >White</a
+            >
+            <a
+              href="javascript:void(0);"
+              class="btn btn-outline-primary header-dark"
+              >Dark</a
+            >
+          </div>
+
+          <h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
+          <div class="sidebar-btn-group pb-30 mb-10">
+            <a
+              href="javascript:void(0);"
+              class="btn btn-outline-primary sidebar-light"
+              >White</a
+            >
+            <a
+              href="javascript:void(0);"
+              class="btn btn-outline-primary sidebar-dark active"
+              >Dark</a
+            >
+          </div>
+
+          <h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
+          <div class="sidebar-radio-group pb-10 mb-10">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebaricon-1"
+                name="menu-dropdown-icon"
+                class="custom-control-input"
+                value="icon-style-1"
+                checked=""
+              />
+              <label class="custom-control-label" for="sidebaricon-1"
+                ><i class="fa fa-angle-down"></i
+              ></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebaricon-2"
+                name="menu-dropdown-icon"
+                class="custom-control-input"
+                value="icon-style-2"
+              />
+              <label class="custom-control-label" for="sidebaricon-2"
+                ><i class="ion-plus-round"></i
+              ></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebaricon-3"
+                name="menu-dropdown-icon"
+                class="custom-control-input"
+                value="icon-style-3"
+              />
+              <label class="custom-control-label" for="sidebaricon-3"
+                ><i class="fa fa-angle-double-right"></i
+              ></label>
+            </div>
+          </div>
+
+          <h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
+          <div class="sidebar-radio-group pb-30 mb-10">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebariconlist-1"
+                name="menu-list-icon"
+                class="custom-control-input"
+                value="icon-list-style-1"
+                checked=""
+              />
+              <label class="custom-control-label" for="sidebariconlist-1"
+                ><i class="ion-minus-round"></i
+              ></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebariconlist-2"
+                name="menu-list-icon"
+                class="custom-control-input"
+                value="icon-list-style-2"
+              />
+              <label class="custom-control-label" for="sidebariconlist-2"
+                ><i class="fa fa-circle-o" aria-hidden="true"></i
+              ></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebariconlist-3"
+                name="menu-list-icon"
+                class="custom-control-input"
+                value="icon-list-style-3"
+              />
+              <label class="custom-control-label" for="sidebariconlist-3"
+                ><i class="dw dw-check"></i
+              ></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebariconlist-4"
+                name="menu-list-icon"
+                class="custom-control-input"
+                value="icon-list-style-4"
+                checked=""
+              />
+              <label class="custom-control-label" for="sidebariconlist-4"
+                ><i class="icon-copy dw dw-next-2"></i
+              ></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebariconlist-5"
+                name="menu-list-icon"
+                class="custom-control-input"
+                value="icon-list-style-5"
+              />
+              <label class="custom-control-label" for="sidebariconlist-5"
+                ><i class="dw dw-fast-forward-1"></i
+              ></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                id="sidebariconlist-6"
+                name="menu-list-icon"
+                class="custom-control-input"
+                value="icon-list-style-6"
+              />
+              <label class="custom-control-label" for="sidebariconlist-6"
+                ><i class="dw dw-next"></i
+              ></label>
+            </div>
+          </div>
+
+          <div class="reset-options pt-30 text-center">
+            <button class="btn btn-danger" id="reset-settings">
+              Reset Settings
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="left-side-bar">
+      <div class="brand-logo text-white">
+        <a href="{% url 'dashboard' %}">
+          <h3 class="text-white tetx-decoration-none">AbleTech</h3>
+        </a>
+        <div class="close-sidebar" data-toggle="left-sidebar-close">
+          <i class="ion-close-round"></i>
+        </div>
+      </div>
+      <div class="menu-block customscroll">
+        <div class="sidebar-menu">
+          <ul id="accordion-menu">
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon"><i class="fa-solid fa-house-user"></i></span
+                ><span class="mtext">Home</span>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon"
+                  ><i class="fa-solid fa-box-archive"></i
+                ></span>
+                <span class="mtext">Orders</span>
+              </a>
+              <ul class="submenu">
+                <li><a href="">All orders</a></li>
+                <li><a href="">Add orders</a></li>
+                <li><a href="">Expired orders</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon"
+                  ><i class="fa-solid fa-basket-shopping"></i
+                ></span>
+
+                <span class="mtext">Products</span>
+              </a>
+              <ul class="submenu">
+                <li><a href="">All Costomers</a></li>
+                <li><a href="">Add Costomer</a></li>
+                <li><a href="">Recent Added</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon"><i class="fa-solid fa-bars"></i></span>
+                <span class="mtext">Category </span>
+              </a>
+              <ul class="submenu">
+                <li><a href="">All Category</a></li>
+                <li><a href="">All Types</a></li>
+                <li><a href="">Add Category</a></li>
+                <li><a href="">Add Type</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon"
+                  ><i class="fa-solid fa-money-bill-trend-up"></i
+                ></span>
+
+                <span class="mtext">Sales</span>
+              </a>
+              <ul class="submenu">
+                <li><a href="">All Suppliers</a></li>
+                <li><a href="">Add Supplier</a></li>
+                <li><a href="">Recent Supplier</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon">
+                  <i class="fa-solid fa-dollar-sign"></i></span
+                ><span class="mtext">Users</span>
+              </a>
+              <ul class="submenu">
+                <li><a href="">Register Buyer</a></li>
+                <li><a href=" {% url 'register_seller' %}">Register seller</a></li>
+                <li><a href="">Register Delivery Man</a></li>
+                <li><a href="{% url 'sellers_list' %}">All Sellers</a></li>
+
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon">
+                  <i class="fa-solid fa-sack-dollar"></i></span
+                ><span class="mtext">Salles</span>
+              </a>
+              <ul class="submenu">
+                <li><a href="">Add Sale</a></li>
+                <li><a href="">Recent Sales</a></li>
+                <li><a href="">Today Sales</a></li>
+                <li><a href="">Monthly Sales></a></li>
+                <li><a href="">All Sales</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon"><i class="fa-solid fa-user-gear"></i></span
+                ><span class="mtext">Account </span>
+              </a>
+              <ul class="submenu">
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+              </ul>
+            </li>
+
+    
+            <li>
+              <a href="javascript:;" class="dropdown-toggle">
+                <span class="micon"><i class="fa-solid fa-chart-line"></i></span
+                ><span class="mtext">Analytics</span>
+              </a>
+              <ul class="submenu">
+                <li><a href="">Introduction</a></li>
+                <li><a href="">h</a></li>
+                <li><a href="">h</a></li>
+                <li>
+                  <a href="">Third</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+
+    
+    {% block content %}
+        
+
+    <!-- <div class="main-container">
+      main container goes here.....
+         
+    </div> -->
+    
+    {% endblock  %}
+        
+
+    <!-- js -->
+    <script src="{% static 'scripts/custom/core.js' %}"></script>
+    <script src="{% static 'scripts/custom/script.min.js' %}"></script>
+    <script src="{% static 'scripts/custom/process.js' %}"></script>
+    <script src="{% static 'scripts/custom/layout-settings.js' %}"></script>
+    <script src="{% static 'src/plugins/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/responsive.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'scripts/custom/dashboard3.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>
