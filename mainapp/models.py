@@ -131,7 +131,7 @@ class Cart(models.Model):
         primary_key=True, auto_created=True, verbose_name="CART ID")
     buyer_id = models.ForeignKey('Buyer', verbose_name='Buyer ID', null=True, on_delete=models.CASCADE)
     products = models.ManyToManyField("Product", verbose_name=_("Products"))
-    
+    created_at = models.DateTimeField(auto_now_add = True, null = True)
     unit_Price = models.IntegerField(default=0)
     quantity = models.IntegerField(default=0)
     
