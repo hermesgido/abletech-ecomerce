@@ -2,6 +2,7 @@ from django import forms
 from . models import *
 
 
+
 class MainForm(forms.ModelForm):
     def __init__(self,  *args, **kwargs):
         super(MainForm, self).__init__(*args, **kwargs)
@@ -43,7 +44,7 @@ class ProductForm(MainForm):
         exclude = ['id','shop_id']
 class PictureForm(MainForm):
     class Meta:
-        model = Product_Picture
+        model = Picture
         exclude = ['id', 'product_id']
         
 class Product_AttributeForm(MainForm):

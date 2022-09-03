@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no">
+    <meta name="description" content="Suha - Multipurpose Ecommerce Mobile HTML Template">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#100DD1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
+    <!-- Title -->
+
+    <title>
+    {% block title %}
+    AbleTech
+    {% endblock  %} 
+    </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="img/icons/icon-72x72.png">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="img/icons/icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/icon-180x180.png">
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{% static 'costomer/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'costomer/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'costomer/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'costomer/css/brands.min.css' %}">
+    <link rel="stylesheet" href="{% static 'costomer/css/solid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'costomer/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'costomer/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'costomer/css/nice-select.css' %}">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'costomer/test.css' %}">
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="{% static 'costomer/manifest.json' %}">< 
+
+<style>
+  .cart-item-amount{
+    position: absolute;
+    margin-top: -6px;
+    background: black;
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 12px;
+    height: 16px;
+    width: 16px;
+  }
+</style>
+
+<script type="text/javascript">
+  const user = '{{request.user}}'
+
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+
+</script>
+
+
+  </head>
+  
+
+  </head>
+  <body>
+
+<!-- Header Area -->
+<div class="header-area" id="headerArea">
+{% include "costomer/snippets/nav-header.html" %}
+</div>
+<div
+  class="offcanvas offcanvas-start suha-offcanvas-wrap"
+  tabindex="-1"
+  id="suhaOffcanvas"
+  aria-labelledby="suhaOffcanvasLabel"
+>
+  <!-- Close button-->
+  <button
+    class="btn-close btn-close-white"
+    type="button"
+    data-bs-dismiss="offcanvas"
+    aria-label="Close"
+  ></button>
+  <!-- Offcanvas body-->
+  <div class="offcanvas-body">
+    <!-- Sidenav Profile-->
+    <div class="sidenav-profile">
+      {% if request.user.is_authenticated %}
+      <div class="user-profile"><img src="{{request.user.profile_pic.url}}" alt="" /></div>
+
+      <div class="user-info">
+        <h5 class="user-name mb-1 text-dark">{{request.user.username}}</h5>
+        
+      </div>
+      {% else %}
+      <div class="user-profile"><img src="{% static 'costomer/img/bg-img/9.jpg'%}" alt="" /></div>
+      <div class="user-info">
+        <h5 class="user-name mb-1 text-dark"><a href="{% url 'signup' %}">Login/register</a></h5>
+        <p class="available-balance text-white">
+        </p>
+      </div>
+      {% endif %}
+      
+    </div>
+    <!-- Sidenav Nav-->
+    <ul class="sidenav-nav ps-0">
+      <li>
+        <a href="{% url 'my_account' %}"><i class="fa-solid fa-user"></i>My Profile</a>
+      </li>
+      <li>
+        <a href=""
+          ><i class="fa-solid fa-bell lni-tada-effect"></i>Notifications<span
+            class="ms-1 badge badge-warning"
+            >3</span
+          ></a
+        >
+      </li>
+      <li class="suha-dropdown-menu">
+        <a href="#"><i class="fa-solid fa-store"></i>Shop Pages</a>
+        <ul>
+          <li><a href="">Featured Products</a></li>
+          <li><a href="">Flash Sale</a></li>
+        </ul>
+      </li>
+     
+      <li>
+        <a href="{% url 'my_account'%}"><i class="fa-solid fa-sliders"></i>Settings</a>
+      </li>
+      <li>
+        <a href="{% url 'logout_user' %}"><i class="fa-solid fa-toggle-off"></i>Sign Out</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- PWA Install Alert -->
+<div
+  class="toast pwa-install-alert shadow bg-white"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+  data-bs-delay="5000"
+  data-bs-autohide="true"
+>
+  <div class="toast-body">
+    <div class="content d-flex align-items-center mb-2">
+      <img src="img/icons/icon-72x72.png" alt="" />
+      <h6 class="mb-0">Add to Home Screen</h6>
+      <button
+        class="btn-close ms-auto"
+        type="button"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <span class="mb-0 d-block"
+      >Add Suha on your mobile home screen. Click the<strong class="mx-1"
+        >Add to Home Screen</strong
+      >button &amp; enjoy it like a regular app.</span
+    >
+  </div>
+</div>
+
+
+
+
+{% block content %}
+
+
+{% endblock  %}
+
+
+
+   
+
+    
+
+
+
+
+
+
+
+
+
+    <!-- Internet Connection Status
+    <div class="internet-connection-status" id="internetStatus"></div>
+    -->
+    <!-- Footer Nav-->
+      <div class="footer-nav-area " id="footerNav" >
+        <div class="suha-footer-nav">
+          <ul class="h-100 d-flex align-items-center justify-content-between ps-0 d-flex rtl-flex-d-row-r">
+            <li><a href="{% url 'home' %} "><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="{% url 'chart' %} "><i class="fa-solid fa-comment-dots"></i>Categories</a></li>
+            <li><a href=" {% url 'cart' %}  "><i class="fa-solid fa-bag-shopping">
+              {% if cart_items > 0 %}
+              <span class="circular bg-primary cart-item-amount">{{cart_items}}</span></i>Cart</a></li>
+              {% else %}
+              <span class="circular bg-primary "></span></i>Cart</a></li>
+              {% endif %}
+            <li><a href=" {% url 'my_account' %}  "><i class="fa-solid fa-gear"></i>Account</a></li>
+            <li><a href="#suhaOffcanvas"><i class="fa-solid fa-heart"></i>Pages</a></li>
+          </ul>
+        </div>
+      </div>
+        <!-- All JavaScript Files-->
+    <!-- All JavaScript Files-->
+    <script src="{% static 'costomer/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'costomer/js/jquery.min.js' %}"></script>
+    <script src="{% static 'costomer/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'costomer/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'costomer/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'costomer/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'costomer/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'costomer/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'costomer/js/jquery.passwordstrength.js' %}"></script>
+    <script src="{% static 'costomer/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'costomer/js/theme-switching.js' %}"></script>
+    <script src="{% static 'costomer/js/no-internet.js' %}"></script>
+    <script src="{% static 'costomer/js/active.js' %}"></script>
+    <script src="{% static 'costomer/js/pwa.js' %}"></script>
+    <script type="text/javascript" src="{% static 'costomer/cart.js' %}"></script>
+  </body>
+
+</html>

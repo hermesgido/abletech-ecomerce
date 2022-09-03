@@ -1,0 +1,128 @@
+{% extends 'costomer/base.html' %}
+{% block content %}
+
+    <!-- Header Area-->
+    <div class="header-area" id="headerArea">
+      <div class="container h-100 d-flex align-items-center justify-content-between rtl-flex-d-row-r">
+        <!-- Back Button-->
+        <div class="back-button me-2"><button class="btn tetx-white" onclick="history.back()"><i class="fa-solid fa-arrow-left-long text-white fs-2x"></i></button></div>
+        <!-- Page Title-->
+        <div class="page-heading">
+          <h6 class="mb-0">Billing Information</h6>
+        </div>
+        <!-- Navbar Toggler-->
+        <div class="suha-navbar-toggler ms-2" data-bs-toggle="offcanvas" data-bs-target="#suhaOffcanvas" aria-controls="suhaOffcanvas">
+          <div><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="page-content-wrapper">
+      <div class="container">
+
+
+
+      <!-- Cart Wrapper-->
+      <div class="cart-wrapper-area py-3">
+        <div class="cart-table card mb-3">
+          <div class="table-responsive card-body">
+            <table class="table mb-0">
+              <tbody>
+
+                {% for item in items %}
+                <tr>
+               
+                  <td><img class="rounded" src="{{item.product.pictures.all.0.product_picture.url}}" alt=""></td>
+                  <td class="text-capitalize"><a href="{% url 'product_details' item.product.id %}">{{item.product.product_name}}<span> {{item.product.price}} × {{item.quantity}}</span></a></td>
+                  <td>
+                    <div class="quantity">
+                      <p><span>
+                        
+                      <p class="" >{{item.get_total}} Tsh</p>
+                    
+                    </span></p>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+                
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+      </div>
+
+
+
+        <!-- Checkout Wrapper-->
+        <div class="checkout-wrapper-area py-3">
+          <!-- Billing Address-->
+          <div class="billing-information-card mb-3">
+            <div class="card billing-information-title-card bg-danger">
+              <div class="card-body">
+                <h6 class="text-center mb-0 text-white">Billing Information</h6>
+              </div>
+            </div>
+            <div class="card user-data-card">
+              <div class="card-body">                                   
+                <div class="single-profile-data d-flex align-items-center justify-content-between">
+                  <div class="title d-flex align-items-center"><i class="fa-solid fa-user"></i><span>Full Name</span></div>
+                  <div class="data-content text-capitalize">{{request.user.full_name}}</div>
+                </div>
+                <div class="single-profile-data d-flex align-items-center justify-content-between">
+                  <div class="title d-flex align-items-center"><i class="fa-solid fa-envelope"></i><span>Email Address</span></div>
+                  <div class="data-content">{{request.user.email}}</div>
+                </div>
+                <div class="single-profile-data d-flex align-items-center justify-content-between">
+                  <div class="title d-flex align-items-center"><i class="fa-solid fa-phone"></i><span>Phone</span></div>
+                  <div class="data-content">{{request.user.phone}}</div>
+                </div>
+                <div class="single-profile-data d-flex align-items-center justify-content-between">
+                  <div class="title d-flex align-items-center"><i class="fa-solid fa-location-crosshairs"></i><span>Shipping Address</span></div>
+                  <div class="data-content text-capitalize">{{buyer.address}}</div>
+                </div>
+                <!-- Edit Address--><a class="btn btn-danger w-100" href="{% url 'edit_profile' %}">Edit Billing Information</a>
+              </div>
+            </div>
+          </div>
+          <!-- Shipping Method Choose-->
+          <div class="shipping-method-choose mb-3">
+            <div class="card shipping-method-choose-title-card bg-success">
+              <div class="card-body">
+                <h6 class="text-center mb-0 text-white">Delivery Methods</h6>
+              </div>
+            </div>
+            <div class="card shipping-method-choose-card">
+              <div class="card-body">
+                <div class="shipping-method-choose">
+                  <ul class="ps-0">
+                    <li>
+                      <input id="fastShipping" type="radio" name="selector" checked>
+                      <label for="fastShipping">Self Pickup<span></span></label>
+                      <div class="check"></div>
+                    </li>
+                    <li>
+                      <input id="normalShipping" type="radio" name="selector">
+                      <label for="normalShipping">BodaBoda Delivery<span></span></label>
+                      <div class="check"></div>
+                    </li>
+                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Cart Amount Area-->
+          <div class="card cart-amount-area">
+            <div class="card-body d-flex align-items-center justify-content-between">
+              <h5 class="total-price mb-0"><span class="counnter">{{order.get_order_total}} Tsh</span></h5><a class="btn btn-warning" href="{% url 'checkout_payment' %}">Confirm &amp; Pay</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

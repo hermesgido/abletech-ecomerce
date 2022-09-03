@@ -1,0 +1,33 @@
+{% extends "costomer/base.html" %}
+{% block content %}
+{% load static %}
+    <div class="header-area" id="headerArea">
+      <div class="container h-100 d-flex align-items-center justify-content-between rtl-flex-d-row-r">
+        <!-- Back Button-->
+        <div class="back-button me-2"><a href="" history.back()><i class="fa-solid fa-arrow-left-long"></i></a></div>
+        <!-- Page Title-->
+        <div class="page-heading">
+          <h6 class="mb-0">Cash - Payment</h6>
+        </div>
+        <!-- Navbar Toggler-->
+        <div class="suha-navbar-toggler ms-2" data-bs-toggle="offcanvas" data-bs-target="#suhaOffcanvas" aria-controls="suhaOffcanvas">
+          <div><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="page-content-wrapper">
+      <div class="container">
+        <!-- Checkout Wrapper-->
+        <div class="checkout-wrapper-area py-3">
+          <div class="credit-card-info-wrapper"><img class="d-block mb-4" src="{% static 'costomer/img/bg-img/credit-card.png'%}" alt="">
+            <div class="cod-info text-center mb-3">
+              <p>Pay when you receive your products. </p>
+            </div><a class="btn btn-warning btn-lg w-100" href="{% url 'payment_success' %}">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% endblock %}

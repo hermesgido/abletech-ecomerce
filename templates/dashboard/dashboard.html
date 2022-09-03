@@ -1,4 +1,7 @@
-{% extends "dashboard/base.html" %} {% load static %} {% block title %} Seller
+{% extends "dashboard/base.html" %}
+{% load humanize %}
+{% load static %} 
+{% block title %} Seller
 Dashboard {% endblock %}
 
 <style>
@@ -14,16 +17,16 @@ Dashboard {% endblock %}
     <div class="card-box height-100-p widget-style3">
       <div class="d-flex flex-wrap">
         <div class="widget-data">
-          <div class="weight-700 font-24 text-dark">75</div>
+          <div class="weight-700 font-24 text-dark">00{{total_products}}</div>
           <div class="font-14 text-secondary weight-500">Products</div>
         </div>
         <div class="widget-icon">
           <div
             class="icon"
-            data-color="#00eccf"
+            data-color="#fff"
             style="color: rgb(0, 236, 207)"
           >
-            <i class="icon-copy dw dw-calendar1"></i>
+            <i class="icon-copy fa fa-shopping-basket" ></i>
           </div>
         </div>
       </div>
@@ -33,16 +36,16 @@ Dashboard {% endblock %}
     <div class="card-box height-100-p widget-style3">
       <div class="d-flex flex-wrap">
         <div class="widget-data">
-          <div class="weight-700 font-24 text-dark">124,551</div>
+          <div class="weight-700 font-24 text-dark">00{{total_orders}}</div>
           <div class="font-14 text-secondary weight-500">Total Orders</div>
         </div>
         <div class="widget-icon">
           <div
             class="icon"
-            data-color="#ff5b5b"
+            data-color="#fff"
             style="color: rgb(255, 91, 91)"
           >
-            <span class="icon-copy ti-heart"></span>
+            <i class="fa-solid fa-bar-chart" aria-hidden="true"></i>
           </div>
         </div>
       </div>
@@ -52,13 +55,12 @@ Dashboard {% endblock %}
     <div class="card-box height-100-p widget-style3">
       <div class="d-flex flex-wrap">
         <div class="widget-data">
-          <div class="weight-700 font-24 text-dark">400000 Tsh</div>
+          <div class="weight-700 font-24 text-dark">{{total_sales | intword}} Tsh</div>
           <div class="font-14 text-secondary weight-500">Total Sales</div>
         </div>
         <div class="widget-icon">
           <div class="icon">
-            <i class="icon-copy fa fa-stethoscope" aria-hidden="true"></i>
-          </div>
+            <i class="icon-copy fa fa-usd" aria-hidden="true"></i>          </div>
         </div>
       </div>
     </div>
@@ -71,8 +73,8 @@ Dashboard {% endblock %}
           <div class="font-14 text-secondary weight-500">This Month</div>
         </div>
         <div class="widget-icon">
-          <div class="icon" data-color="#09cc06" style="color: rgb(9, 204, 6)">
-            <i class="icon-copy fa fa-money" aria-hidden="true"></i>
+          <div class="icon" data-color="#fff" style="color: rgb(9, 204, 6)">
+            <i class="icon-copy fa fa-filter" aria-hidden="true"></i>
           </div>
         </div>
       </div>
@@ -98,27 +100,74 @@ Dashboard {% endblock %}
 </div>
 <!--graph sectiin ends-->
 
-<div class="row">
-  <div class="col-md-6 col-sm-12 mb-30">
-    <div class="pd-20 card-box height-100-p">
-      <h4 class="mb-15 text-blue h4 text-center">Shop Setting</h4>
-      <div class="sname">
-        <p class="text-capitalize h4 text-center">
-          Shop Name: <span class="text-blue">{{seller_shop.shop_name}}</span> <br /><br />
-          <button class="btn btn-primary text-center">SETTING</button>
-        </p>
-      </div>
-    </div>
-  </div>
 
-  <div class="col-md-6 col-sm-12 mb-30 h-25">
-    <div class="pd-20 card-box height-100-p">
-      <h4 class="mb-15 text-blue h4 text-center">
-        Add New Product <br /><br />
-        <i class="fa-solid fa-plus text-center fs-6 fa-4x fw-bolder"></i>
-      </h4>
-    </div>
-  </div>
+
+
+<div class="card-box mb-30">
+  <h2 class="h4 pd-20">Best Selling Products</h2>
+  <table class="data-table table nowrap text-capitalize">
+    <thead>
+      <tr>
+        <th class="table-plus datatable-nosort">Product</th>
+        <th>Name</th>
+        
+        <th>Price</th>
+        <th>Quantity Sold</th>
+        <th>Added Date</th>
+        <th class="datatable-nosort">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for product in top_sold %}
+     
+     
+      <tr>
+        <td class="table-plus ">
+          <img
+            src="{{product.pictures.all.0.product_picture.url}}"
+            width="70"
+            height="70"
+            alt=""
+          />
+        </td>
+        <td>
+         {{product.product_name}}
+        
+        </td>
+        
+        <td>{{product.price | intcomma}} Tsh</td>
+        <td>45</td>
+        <td>{{product.posted_Date | naturaltime}} </td>
+        <td>
+          <div class="dropdown">
+            <a
+              class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+            >
+              <i class="dw dw-more"></i>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+            >
+              <a class="dropdown-item" href=""
+                ><i class="dw dw-eye"></i> View</a
+              >
+              <a class="dropdown-item" href=""
+                ><i class="dw dw-edit2"></i> Edit</a
+              >
+              <a class="dropdown-item" href=""
+                ><i class="dw dw-delete-3"></i> Delete</a
+              >
+            </div>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
+
 
 {% endblock %}

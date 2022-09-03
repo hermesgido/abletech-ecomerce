@@ -1,0 +1,85 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Orders</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Orders
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                <a
+                    class="btn btn-primary dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                >
+                    January 2022
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Export List</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+					<!-- Responsive tables Start -->
+					<div class="pd-20 card-box mb-30">
+						<div class="clearfix mb-20">
+							<div class="pull-left">
+								<h4 class="text-blue h4">Orders</h4>
+								
+							</div>
+							
+						</div>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">Costomer</th>
+										<th scope="col">Date</th>
+										<th scope="col">Status</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    {% for no, order in orders  %}
+                                    <tr>
+										<th scope="row">{{no}}</th>
+										<td>{{order.buyer_id.user_id.username}}</td>
+										<td>{{order.created_date}}</td>
+                                         {% if order.completed %}
+                                         <td>Competed</td>
+                                         {% else %}
+                                         <td>Pending</td>
+                                         {% endif %}
+										
+										<td><span class="badge badge-primary">View</span></td>
+									</tr>
+                                    {% endfor %}
+									
+									
+								</tbody>
+							</table>
+						</div>
+						
+					</div>			
+
+{% endblock  %}

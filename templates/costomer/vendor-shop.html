@@ -1,0 +1,307 @@
+{% extends 'costomer/base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Header Area-->
+    <div class="header-area" id="headerArea">
+      <div class="container h-100 d-flex align-items-center justify-content-between rtl-flex-d-row-r">
+        <!-- Back Button-->
+        <div class="back-button me-2"><a href="shop-grid.html"><i class="fa-solid fa-arrow-left-long"></i></a></div>
+        <!-- Page Title-->
+        <div class="page-heading">
+          <h6 class="mb-0">Vendor Shop</h6>
+        </div>
+        <!-- Navbar Toggler-->
+        <div class="suha-navbar-toggler ms-2" data-bs-toggle="offcanvas" data-bs-target="#suhaOffcanvas" aria-controls="suhaOffcanvas">
+          <div><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-start suha-offcanvas-wrap" tabindex="-1" id="suhaOffcanvas" aria-labelledby="suhaOffcanvasLabel">
+      <!-- Close button-->
+      <button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <!-- Offcanvas body-->
+      <div class="offcanvas-body">
+        <!-- Sidenav Profile-->
+        <div class="sidenav-profile">
+          <div class="user-profile"><img src="img/bg-img/9.jpg" alt=""></div>
+          <div class="user-info">
+            <h5 class="user-name mb-1 text-white">Suha Sarah</h5>
+            <p class="available-balance text-white">Available points <span class="counter">499</span></p>
+          </div>
+        </div>
+        <!-- Sidenav Nav-->
+        <ul class="sidenav-nav ps-0">
+          <li><a href="profile.html"><i class="fa-solid fa-user"></i>My Profile</a></li>
+          <li><a href="notifications.html"><i class="fa-solid fa-bell lni-tada-effect"></i>Notifications<span class="ms-1 badge badge-warning">3</span></a></li>
+          <li class="suha-dropdown-menu"><a href="#"><i class="fa-solid fa-store"></i>Shop Pages</a>
+            <ul>
+              <li><a href="shop-grid.html">Shop Grid</a></li>
+              <li><a href="shop-list.html">Shop List</a></li>
+              <li><a href="single-product.html">Product Details</a></li>
+              <li><a href="featured-products.html">Featured Products</a></li>
+              <li><a href="flash-sale.html">Flash Sale</a></li>
+            </ul>
+          </li>
+          <li><a href="pages.html"><i class="fa-solid fa-file-code"></i>All Pages</a></li>
+          <li class="suha-dropdown-menu"><a href="wishlist-grid.html"><i class="fa-solid fa-heart"></i>My Wishlist</a>
+            <ul>
+              <li><a href="wishlist-grid.html">Wishlist Grid</a></li>
+              <li><a href="wishlist-list.html">Wishlist List</a></li>
+            </ul>
+          </li>
+          <li><a href="settings.html"><i class="fa-solid fa-sliders"></i>Settings</a></li>
+          <li><a href="intro.html"><i class="fa-solid fa-toggle-off"></i>Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-content-wrapper pb-3 pt-2">
+  <div class="container">
+        <!-- Vendor Details Wrap -->
+        <div class=" vendor-details-wrap bg-img bg-overlay py-4" style="background-image: url({% static 'costomer/img/bg-img/15.jpg' %})">
+          <div class="container">
+            <div class="d-flex align-items-start">
+              <!-- Vendor Profile-->
+              <div class="vendor-profile shadow me-3 mt-1">
+                <figure class="m-0"><img src="{% static 'costomer/img/core-img/logo-small.png' %}" alt=""></figure>
+              </div>
+              <!-- Vendor Info-->
+              <div class="vendor-info">
+                <h5 class="vendor-title text-white">Suha</h5>
+                <p class="mb-1 text-white"><i class="fa-solid fa-location-dot me-1"></i>Dhaka, Bangladesh</p>
+                <div class="ratings lh-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span class="text-white">(99% Positive Seller)</span></div>
+              </div>
+            </div>
+            <!-- Vendor Basic Info-->
+            <div class="vendor-basic-info d-flex align-items-center justify-content-between mt-4">
+              <div class="single-basic-info">
+                <div class="icon"><i class="fa-solid fa-shield"></i></div><span>Trusted Seller</span>
+              </div>
+              <div class="single-basic-info">
+                <div class="icon"><i class="fa-solid fa-bag-shopping"></i></div><span>100+ Items</span>
+              </div>
+              <div class="single-basic-info">
+                <div class="icon"><i class="fa-solid fa-ship"></i></div><span>98% Ship On Time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Vendor Tabs -->
+        <div class="vendor-tabs pt-1">
+          <div class="container">
+            <ul class="nav nav-tabs mb-3" id="vendorTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">About</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab" aria-controls="products" aria-selected="false">Products</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Ratings &amp; Reviews</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+  </div>
+      <div class="tab-content" id="vendorTabContent">
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="container">
+            <div class="card">
+              <div class="card-body about-content-wrap dir-rtl">
+                <h6>Welcome to our shop gallery.</h6>
+                <p>A versatile e-commerce shop template. It is very nicely designed with modern features &amp; coded with the latest technology.</p>
+                <ul class="mb-3 ps-3">
+                  <li><i class="fa-solid fa-circle-check me-1"></i>Trusted Seller</li>
+                  <li><i class="fa-solid fa-circle-check me-1"></i>100+ Items</li>
+                  <li><i class="fa-solid fa-circle-check me-1"></i>98% Ship On Time</li>
+                </ul>
+                <p>It nicely views on all devices with smartphones, tablets, laptops &amp; desktops.</p><img class="mb-3 rounded" src="img/bg-img/16.jpg" alt="">
+                <p>A versatile e-commerce shop template. It is very nicely designed with modern features &amp; coded with the latest technology.</p>
+                <p>It nicely views on all devices with smartphones, tablets, laptops &amp; desktops.</p>
+                <h6>Need Help?</h6>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sint reiciendis minima iusto ex beatae.</p>
+                <div class="contact-btn-wrap text-center">
+                  <p class="mb-2">For more information, submit a request.</p><a class="btn btn-primary w-100" href="contact.html"><i class="fa-solid fa-life-ring me-2"></i>Submit A Query</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade show active" id="products" role="tabpanel" aria-labelledby="products-tab">
+          <div class="container">
+            <div class="row g-2 rtl-flex-d-row-r">
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-warning">Sale</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart">                       </i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="img/product/11.png" alt="">
+                      <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+                      <ul class="offer-countdown-timer d-flex align-items-center shadow-sm" data-countdown="2023/12/31 23:59:59">
+                        <li><span class="days">0</span>d</li>
+                        <li><span class="hours">0</span>h</li>
+                        <li><span class="minutes">0</span>m</li>
+                        <li><span class="seconds">0</span>s</li>
+                      </ul></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Beach Cap</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$13<span>$42</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart">                       </i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="img/product/5.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Sofa</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$74<span>$99</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-success">Sale</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart">                       </i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="img/product/6.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Roof Lamp</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$99<span>$113</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-danger">-18%</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart">                       </i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="img/product/9.png" alt="">
+                      <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+                      <ul class="offer-countdown-timer d-flex align-items-center shadow-sm" data-countdown="2022/12/23 00:21:29">
+                        <li><span class="days">0</span>d</li>
+                        <li><span class="hours">0</span>h</li>
+                        <li><span class="minutes">0</span>m</li>
+                        <li><span class="seconds">0</span>s</li>
+                      </ul></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Sneaker Shoes</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$87<span>$92</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-danger">-11%</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="img/product/8.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Chair</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$21<span>$25</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-warning">On Sale</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="img/product/4.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Polo Shirts</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$38<span>$41</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     <div class="container">
+      <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+        <!-- Rating & Review Wrapper -->
+        <div class="rating-and-review-wrapper bg-white py-3 mb-3 dir-rtl">
+          <div class="container">
+            <div class="rating-review-content">
+              <ul class="ps-0">
+                <!-- Single User Review -->
+                <li class="single-user-review d-flex">
+                  <div class="user-thumbnail"><img src="img/bg-img/7.jpg" alt=""></div>
+                  <div class="rating-comment">
+                    <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="comment mb-0">Very good product. It's just amazing!</p><span class="name-date">Designing World 12 Dec 2022</span><a class="review-image mt-2 border rounded" href="img/product/3.png"><img class="rounded-3" src="img/product/3.png" alt=""></a>
+                  </div>
+                </li>
+                <!-- Single User Review -->
+                <li class="single-user-review d-flex">
+                  <div class="user-thumbnail"><img src="img/bg-img/8.jpg" alt=""></div>
+                  <div class="rating-comment">
+                    <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="comment mb-0">Very excellent product. Love it.</p><span class="name-date">Designing World 8 Dec 2022</span><a class="review-image mt-2 border rounded" href="img/product/4.png"><img class="rounded-3" src="img/product/4.png" alt=""></a><a class="review-image mt-2 border rounded" href="img/product/6.png"><img class="rounded-3" src="img/product/6.png" alt=""></a>
+                  </div>
+                </li>
+                <!-- Single User Review -->
+                <li class="single-user-review d-flex">
+                  <div class="user-thumbnail"><img src="img/bg-img/9.jpg" alt=""></div>
+                  <div class="rating-comment">
+                    <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="comment mb-0">What a nice product it is. I am looking it's.</p><span class="name-date">Designing World 28 Nov 2022</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Ratings Submit Form-->
+        <div class="ratings-submit-form bg-white py-3 dir-rtl">
+          <div class="container">
+            <h6>Submit A Review</h6>
+            <form action="#" method="">
+              <div class="stars mb-3">
+                <input class="star-1" type="radio" name="star" id="star1">
+                <label class="star-1" for="star1"></label>
+                <input class="star-2" type="radio" name="star" id="star2">
+                <label class="star-2" for="star2"></label>
+                <input class="star-3" type="radio" name="star" id="star3">
+                <label class="star-3" for="star3"></label>
+                <input class="star-4" type="radio" name="star" id="star4">
+                <label class="star-4" for="star4"></label>
+                <input class="star-5" type="radio" name="star" id="star5">
+                <label class="star-5" for="star5"></label><span></span>
+              </div>
+              <textarea class="form-control mb-3" id="comments" name="comment" cols="30" rows="10" data-max-length="200" placeholder="Write your review..."></textarea>
+              <button class="btn btn-primary" type="submit">Save Review</button>
+            </form>
+          </div>
+        </div>
+      </div>
+     </div>
+      </div>
+    </div>
+    {% endblock %}

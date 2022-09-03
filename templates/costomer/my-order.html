@@ -1,0 +1,125 @@
+{% extends 'costomer/base.html' %}
+{% block content %}
+
+    <!-- Header Area-->
+    <div class="header-area" id="headerArea">
+      <div class="container h-100 d-flex align-items-center justify-content-between rtl-flex-d-row-r">
+        <!-- Back Button-->
+        <div class="back-button me-2" onclick="history.back()"><i class="fa-solid fa-arrow-left-long"></i></a></div>
+        <!-- Page Title-->
+        <div class="page-heading">
+          <h6 class="mb-0">Order Status</h6>
+        </div>
+        <!-- Navbar Toggler-->
+        <div class="suha-navbar-toggler ms-2" data-bs-toggle="offcanvas" data-bs-target="#suhaOffcanvas" aria-controls="suhaOffcanvas">
+          <div><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="my-orkder-wrapper" style="background-image: url('img/bg-img/21.jpg')">
+      <div class="container">
+        <br>
+        <br>
+       
+       {% for order in orders  %}
+       
+       <div class="card">
+        <div class="card-body p-4">
+          <!-- Single Order Status-->
+          <div class="single-order-status ">
+            <div class="order-text">
+              <h6>Order Status</h6>
+            </div>
+            {% if order.completed %}
+            <button class="btn btn-success order-status ml-5">Completed</button>
+            {% else %}
+            <button class="btn btn-danger order-status ml-5">Pending</button>
+            {% endif %}
+          </div>
+          <!-- Single Order Status-->
+          <div class="single-order-status active">
+            <div class="order-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <div class="order-text">
+              <h6>Order placed</h6><span>{{order.created_date}}</span>
+            </div>
+            <div class="order-status"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <!-- Single Order Status-->
+          <div class="single-order-status active">
+            <div class="order-icon"><i class="fa-solid fa-box-open"></i></div>
+            <div class="order-text">
+              <h6>Product packaging</h6><span>3 Feb 2022</span>
+            </div>
+            <div class="order-status"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <!-- Single Order Status-->
+          <div class="single-order-status active">
+            <div class="order-icon"><i class="fa-solid fa-truck"></i></div>
+            <div class="order-text">
+              <h6>Ready for shipment</h6><span>3 Feb 2022</span>
+            </div>
+            <div class="order-status"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <!-- Single Order Status-->
+          <div class="single-order-status">
+            <div class="order-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="order-text">
+              <h6>On the way</h6><span>Estimate: 4 Feb 2022</span>
+            </div>
+            <div class="order-status"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <!-- Single Order Status-->
+          <div class="single-order-status">
+            <div class="order-icon"><i class="fa-solid fa-store"></i></div>
+            <div class="order-text">
+              <h6>Dropped in the delivery station</h6><span>Estimate: 6 Feb 2022</span>
+            </div>
+            <div class="order-status"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <!-- Single Order Status-->
+          <div class="single-order-status">
+            <div class="order-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+            <div class="order-text">
+              <h6>Delivered</h6><span>Estimate: 7 Feb 2022</span>
+            </div>
+            <div class="order-status"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+        </div>
+      </div>
+
+<br>
+       {% endfor %}
+       {% if messages %}
+       
+       {% for message in messages %}
+      
+       
+       <div class="card">
+        <div class="card-body p-4">
+     
+          <!-- Single Order Status-->
+          <div class="single-order-status">
+            <div class="order-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="order-text">
+             {{message}}
+            </div>
+          
+              <div class="btn btn-info btn-sm order-status"><a href="{% url 'home' %}">Shop Now</a></div>
+          
+          </div>
+          
+         
+        </div>
+      </div>
+
+
+       {% endfor %}
+       {% endif %}
+       
+       
+
+
+      </div>
+    </div>
+    {% endblock %}

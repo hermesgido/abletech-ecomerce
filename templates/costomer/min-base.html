@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        AbleTech Ecomerce
+{% endblock  %}
+</title>
+
+
+
+
+
+<!-- CSS here -->
+<link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/owl-carousel.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/backtotop.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/ui-range-slider.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'assets/flaticon/flaticon.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/font-awesome-pro.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+
+
+
+
+
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom/style.css' %}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom/core.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom/style2.css' %}" />
+
+
+
+
+
+    
+    
+    <style>
+        .mybg {
+            background-color: #EB612A;
+            color: #fff;
+        }
+
+        @media (max-width: 760px) {
+            .divs {
+                display: none;
+            }
+
+        }
+    </style>
+
+    <head>
+        <!--load all Font Awesome styles -->
+        <link href=" {% static 'icons/css/all.css' %}" rel="stylesheet">
+    </head>
+
+
+
+</head>
+
+<body>
+ 
+{% block content %}
+
+{% endblock  %}
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+    <script src="{% static 'scripts/bootstrap/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'scripts/custom/script.js' %}"></script>
+</body>
+
+</html>

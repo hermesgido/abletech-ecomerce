@@ -1,186 +1,87 @@
 {% extends "dashboard/base.html" %}
 {% load static %}
+<!-- CSS -->
 
 
-{% block title %} Add Product {% endblock %}
+
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'scripts/plugins/dropzone/src/dropzone.css' %}" />
-
-
-<style>
-  .addbtn {
-    margin-left: 100px;
-    margin-top: 5px;
-  }
-</style>
-<div class="forms">
-
-  <div class="form-errors">
-
-    {% for error in productForm.errors %}
-    <h6>{{error}}</h6>
-    {% endfor %}
-    {{productForm.product_price.errors}}
-    <h6>{{productForm.product_name.errors}} </h6>
-    <h6>{{productForm.manufactured_Date.errors}} </h6>
+<!-- Form grid Start -->
+<div class="pd-20 card-box mb-30">
+  <div class="clearfix">
+    <div class="pull-left">
+      <h4 class="text-blue h4">Form grid</h4>
+      <p class="mb-30">All bootstrap element classies</p>
+    </div>
+    
   </div>
-  <div class="centered-form">
-    <form action="add_product" multiple enctype="multipart/form-data" method="POST" id="settingForm"
-      data-sub-url="{% load_sub_categories %">
-      {% csrf_token %}
-      <h4 class="text-center my-2">Products Details</h4>
-
-      <div class="col-md-12 col-md-6 d-md-flex d-block">
-        <div class="input-group">
-          <div class="w-100 mx-3">
-            <label for="full_name">Product Name</label>
-            {{productForm.product_name}}
-          </div>
+  <form action="" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" class="form-control" name="product_name" />
         </div>
-
-        <div class="input-group">
-          <div class="w-100 mx-3">
-            <label for="user_id">Product Price</label>
-            {{productForm.price}}
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label>Price</label>
+          <input type="text" class="form-control" name="price"/>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="form-group">
+          <label>Brand</label>
+          <input type="text" class="form-control" name="brand_name"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" name="description"> </textarea>
           </div>
         </div>
       </div>
-      <div class="col-md-12 col-md-6 d-md-flex d-block">
-        <div class="input-group">
-          <div class="w-100 mx-3 text-capitalize">
-            <label for="shop_category_id">Manufactured Date</label>
-            {{productForm.manufactured_Date}}
+      <div class="col-md-6">
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label>Manufactured Date</label>
+            <input type="text" class="form-control" name="manufactured_Date" />
           </div>
         </div>
-        <div class="input-group">
-          <div class="w-100 mx-3 text-capitalize">
-            <label for="sub_category">Product Brand</label>
-            {{productForm.brand_name}}
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label>Pictures </label>
+            <input type="file" multiple class="form-control" name="product_picture" />
           </div>
         </div>
-
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label>Active </label>
+            <input type="checkbox" checked name="is_active"/>
+          </div>
+        </div>
       </div>
-      <div class="col-md-12 col-md-6 d-md-flex d-block">
-        <div class="input-group">
-          <div class="w-100 mx-3">
-            <label for="email">Description</label>
-            {{productForm.description}}
-          </div>
-        </div>
+    </div>
 
-      </div>
-
-      <div class="picture-form col-sm-12 col-md-12">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        <link rel="stylesheet" href="{% static 'snippets/uploader.css' %}">
-        <script src="{% static 'snippets/uploader.js' %}"> </script>
-        
+    <div class="row">
       
-        <!-- partial:index.partial.html -->
-        <div class="upload__box">
-          <div class="upload__btn-box">
-            <label class="upload__btn">
-              <p>Upload images</p>
-              <input type="file" multiple data-max_length="20" class="upload__inputfile" name="product_picture">
-            </label>
-          </div>
-          <div class="upload__img-wrap"></div>
-        </div>
-        <!-- partial -->
-          <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="./script.js"></script>
-        
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="col-md-12 text-center">
-          <input type="submit" value="SUBMIT" class="btn btn-primary" />
-        </div>
-
-    </form>
-
-  </div>
-</div>
-<!-- 
-    <br>
-<button class="btn-primary btn btn-sm"
-data-toggle="modal"
-data-target="#small-modal"
-type="button">Add Atribute</button>
-    <br>
-
-    <div class="pd-10 card-box mb-30">
-        <div class="clearfix mb-20">
-            <div class="pull-left">
-                <h4 class="text-blue h4">Product Images</h4>
-            </div>
-        </div>
-        <form class="dropzone" action="#" id="my-awesome-dropzone">
-            <div class="fallback">
-                <input type="file" name="file" />
-            </div>
-        </form>
-    </div>
-</div>
-
-
-<div class="col-md-4 col-sm-12 mb-30">
-    <div class="pd-20 card-box height-100-p">
-        <div
-            class="modal fade"
-            id="small-modal"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="myLargeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-                <div class="modal-content">
-                    
-                    <div class="modal-body">
-                        <div>
-                            {{attributeForm}}
-                        </div>
-                        <div>
-                        <button class="btn btn-primary btn-sm  addbtn">Add</button>
-                    </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12 text-center">
-        <input type="submit" value="SUBMIT" class="btn btn-primary" />
+       <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn btn-primary">POST</button>
+       </div>
       </div>
-    </form>
-</div>
+    </div>
+  
+    
+  </form>
 
- -->
+</div>
+<!-- Form grid End -->
+
+
 {% endblock %}

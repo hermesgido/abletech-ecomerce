@@ -1,0 +1,646 @@
+{% extends 'costomer/base.html' %}
+
+
+{% block content %}
+    {% load static %}
+<style>
+    .side-div {
+      margin-top: 15px;
+      background-color: rgb(240, 73, 7);
+      height: 540px;
+      max-width: 300px;
+      margin-left: 20px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 19px;
+      position: fixed;
+      padding: 10px;
+    }
+    .two-pics{
+      margin-top: 15px;
+    
+    }
+    .side-div-left {
+      background-color: rgb(240, 73, 7);
+      padding: 10px;
+      height: 270px;
+      margin-right: 20px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+    .procad{
+      border-radius: 3px;
+      border-style: solid;
+      border-color: rgb(250, 81, 14);
+    }
+    
+    @media (max-width: 760px) {
+      .my-d-none{
+        display: none;
+      }
+    }
+    </style>
+    
+  <div class="page-content-wrapper">
+    <!-- Search Form-->
+    <!-- Search Form-->
+
+    <div class="row">
+       {% include 'costomer/left-bar.html' %}
+        <div class="col-md-6">
+
+    <div class="container">
+      <div class="search-form pt-3 rtl-flex-d-row-r">
+        <form action="" method="">
+          <input class="form-control" type="search" name="search" placeholder="Search in AbleTech">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <!-- Alternative Search Options -->
+        <div class="alternative-search-options">
+          <div class="dropdown"><a class="btn btn-danger dropdown-toggle" id="altSearchOption" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-sliders"></i></a>
+            <!-- Dropdown Menu -->
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="altSearchOption">
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-microphone"> </i>Voice Search</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-image"> </i>Image Search</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+        <!-- Hero Wrapper -->
+        <div class="hero-wrapper">
+          <div class="container">
+            <div class="pt-3">
+              <!-- Hero Slides-->
+              <div class="hero-slides owl-carousel">
+                <!-- Single Hero Slide-->
+                <div
+                  class="single-hero-slide"
+                  style="background-image: url('static/costomer/img/bg-img/1.jpg')"
+                >
+                  <div class="slide-content h-100 d-flex align-items-center">
+                    <div class="slide-text">
+                      <h4
+                        class="text-white mb-0"
+                        data-animation="fadeInUp"
+                        data-delay="100ms"
+                        data-duration="1000ms"
+                      >
+                        Amazon Echo
+                      </h4>
+                      <p
+                        class="text-white"
+                        data-animation="fadeInUp"
+                        data-delay="400ms"
+                        data-duration="1000ms"
+                      >
+                        3rd Generation, Charcoal
+                      </p>
+                      <a
+                        class="btn btn-primary"
+                        href="#"
+                        data-animation="fadeInUp"
+                        data-delay="800ms"
+                        data-duration="1000ms"
+                        >Buy Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Hero Slide-->
+                <div
+                  class="single-hero-slide"
+                  style="background-image: url('static/costomer/img/bg-img/2.jpg')"
+                >
+                  <div class="slide-content h-100 d-flex align-items-center">
+                    <div class="slide-text">
+                      <h4
+                        class="text-white mb-0"
+                        data-animation="fadeInUp"
+                        data-delay="100ms"
+                        data-duration="1000ms"
+                      >
+                        Light Candle
+                      </h4>
+                      <p
+                        class="text-white"
+                        data-animation="fadeInUp"
+                        data-delay="400ms"
+                        data-duration="1000ms"
+                      >
+                        Now only $22
+                      </p>
+                      <a
+                        class="btn btn-success"
+                        href="#"
+                        data-animation="fadeInUp"
+                        data-delay="500ms"
+                        data-duration="1000ms"
+                        >Buy Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Hero Slide-->
+                <div
+                  class="single-hero-slide"
+                  style="background-image: url('static/costomer/img/bg-img/3.jpg')"
+                >
+                  <div class="slide-content h-100 d-flex align-items-center">
+                    <div class="slide-text">
+                      <h4
+                        class="text-white mb-0"
+                        data-animation="fadeInUp"
+                        data-delay="100ms"
+                        data-duration="1000ms"
+                      >
+                        Best Furniture
+                      </h4>
+                      <p
+                        class="text-white"
+                        data-animation="fadeInUp"
+                        data-delay="400ms"
+                        data-duration="1000ms"
+                      >
+                        3 years warranty
+                      </p>
+                      <a
+                        class="btn btn-danger"
+                        href="#"
+                        data-animation="fadeInUp"
+                        data-delay="800ms"
+                        data-duration="1000ms"
+                        >Buy Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+
+
+
+            </div>
+          </div>
+        </div>
+           <!-- Product Catagories -->
+    <div class="product-catagories-wrapper py-3">
+        <div class="container">
+          <div class="row g-2 rtl-flex-d-row-r">
+            <!-- Catagory Card -->
+            
+            
+            
+           
+            
+        {% for category in categories %}
+        <!-- Catagory Card -->
+        <div class="col-3">
+          <div class="card catagory-card active">
+            <div class="card-body px-2">
+              <a href="{% url 'category' category.id %}"
+                ><img
+                  src="static/costomer/img/core-img/price-tag.png"
+                  alt=""
+                /><span class="text-capitalize">{{category.category_name}}</span></a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+            
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+        <!-- Flash Sale Slide -->
+        <div class="flash-sale-wrapper">
+          <div class="container">
+            <div class="section-heading d-flex align-items-center justify-content-between rtl-flex-d-row-r">
+              <h6 class="d-flex align-items-center rtl-flex-d-row-r"><i
+                  class="fa-solid fa-bolt-lightning me-1 text-danger lni-flashing-effect"></i>Cyclone Offer</h6>
+              <!-- Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+              <ul class="sales-end-timer ps-0 d-flex align-items-center rtl-flex-d-row-r"
+                data-countdown="2022/12/31 14:21:59">
+                <li><span class="days">0</span>d</li>
+                <li><span class="hours">0</span>h</li>
+                <li><span class="minutes">0</span>m</li>
+                <li><span class="seconds">0</span>s</li>
+              </ul>
+            </div>
+            <!-- Flash Sale Slide-->
+            <div class="flash-sale-slide owl-carousel">
+              <!-- Flash Sale Card -->
+              <div class="card flash-sale-card">
+                <div class="card-body"><a href="single-product.html"><img src="img/product/1.png" alt=""><span
+                      class="product-title">Black Table Lamp</span>
+                    <p class="sale-price">$7.99<span class="real-price">$15</span></p><span class="progress-title">33%
+                      Sold</span>
+                    <!-- Progress Bar-->
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </a></div>
+              </div>
+              <!-- Flash Sale Card -->
+              <div class="card flash-sale-card">
+                <div class="card-body"><a href="single-product.html"><img src="img/product/2.png" alt=""><span
+                      class="product-title">Modern Sofa</span>
+                    <p class="sale-price">$14<span class="real-price">$21</span></p><span class="progress-title">57%
+                      Sold</span>
+                    <!-- Progress Bar-->
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 57%" aria-valuenow="57"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </a></div>
+              </div>
+              <!-- Flash Sale Card -->
+              <div class="card flash-sale-card">
+                <div class="card-body"><a href="single-product.html"><img src="img/product/3.png" alt=""><span
+                      class="product-title">Classic Garden Chair</span>
+                    <p class="sale-price">$36<span class="real-price">$49</span></p><span class="progress-title">99%
+                      Sold</span>
+                    <!-- Progress Bar-->
+                    <div class="progress">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </a></div>
+              </div>
+              <!-- Flash Sale Card -->
+              <div class="card flash-sale-card">
+                <div class="card-body"><a href="single-product.html"><img src="img/product/1.png" alt=""><span
+                      class="product-title">Black Table Lamp</span>
+                    <p class="sale-price">$7.99<span class="real-price">$15</span></p><span class="progress-title">33%
+                      Sold</span>
+                    <!-- Progress Bar-->
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </a></div>
+              </div>
+              <!-- Flash Sale Card -->
+              <div class="card flash-sale-card">
+                <div class="card-body"><a href="single-product.html"><img src="img/product/2.png" alt=""><span
+                      class="product-title">Modern Sofa</span>
+                    <p class="sale-price">$14<span class="real-price">$21</span></p><span class="progress-title">57%
+                      Sold</span>
+                    <!-- Progress Bar-->
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 57%" aria-valuenow="57"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </a></div>
+              </div>
+              <!-- Flash Sale Card -->
+              <div class="card flash-sale-card">
+                <div class="card-body"><a href="single-product.html"><img src="img/product/3.png" alt=""><span
+                      class="product-title">Classic Garden Chair</span>
+                    <p class="sale-price">$36<span class="real-price">$49</span></p><span class="progress-title">99%
+                      Sold</span>
+                    <!-- Progress Bar-->
+                    <div class="progress">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Dark Mode -->
+        <div class="container">
+          <div class="dark-mode-wrapper mt-3 bg-img p-4 p-lg-5">
+            <p class="text-white">You can change your display to a dark background using a dark mode.</p>
+            <div class="form-check form-switch mb-0">
+              <label class="form-check-label text-white h6 mb-0" for="darkSwitch">Switch to Dark Mode</label>
+              <input class="form-check-input" id="darkSwitch" type="checkbox" role="switch">
+            </div>
+          </div>
+        </div>
+        <!-- Top Products -->
+        <div class="top-products-area py-3">
+          <div class="container">
+            <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
+              <h6>Top Products</h6><a class="btn p-0" href="shop-grid.html">View All<i
+                  class="ms-1 fa-solid fa-arrow-right-long"></i></a>
+            </div>
+            <div class="row g-2">
+              <!-- Product Card -->
+
+          {% for product in top_products %}
+          <div class="col-6 col-md-4">
+            <div class="card product-card">
+              <div class="card-body">
+                <!-- Badge--><span class="1badge rounded-pill badge-warning"
+                  >Sale</span
+                >
+                <!-- Wishlist Button--><a class="wishlist-btn" href="#"
+                  ><i class="fa-solid fa-heart"> </i
+                ></a>
+                
+                <!-- Thumbnail --><a
+                  class="product-thumbnail d-block"
+                  href="{% url 'product_details' product.id %}"
+                >
+                  <img
+                    class="mb-2"
+                    src="{{product.pictures.all.0.product_picture.url}}"
+                    alt=""
+                  />
+
+                  <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+                  <!-- <ul class="offer-countdown-timer d-flex align-items-center shadow-sm" data-countdown="2023/12/31 23:59:59">
+                      <li><span class="days">0</span>d</li>
+                      <li><span class="hours">0</span>h</li>
+                      <li><span class="minutes">0</span>m</li>
+                      <li><span class="seconds">0</span>s</li>
+                    </ul> --></a
+                >
+                <!-- Product Title --><a
+                  class="product-title text-capitalize"
+                  href="{% url 'product_details' product.id %} "
+                  >{{product.product_name}}</a
+                >
+                <!-- Product Price -->
+                <p class="sale-price">
+                  {{product.price}} Tsh<span>7842 Tsh</span>
+                </p>
+                <!-- Rating -->
+                <div class="product-rating">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+                <!-- Add to Cart <a class="btn btn-success btn-sm" href="#"
+                ><i class="fa-solid fa-plus"></i
+              ></a>-->
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"> </i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2"
+                        src="img/product/5.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Sofa</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$74<span>$99</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-success">Sale</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"> </i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2"
+                        src="img/product/6.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Roof Lamp</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$99<span>$113</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-danger">-18%</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"> </i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2"
+                        src="img/product/9.png" alt="">
+                      <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+                      <ul class="offer-countdown-timer d-flex align-items-center shadow-sm"
+                        data-countdown="2022/12/23 00:21:29">
+                        <li><span class="days">0</span>d</li>
+                        <li><span class="hours">0</span>h</li>
+                        <li><span class="minutes">0</span>m</li>
+                        <li><span class="seconds">0</span>s</li>
+                      </ul>
+                    </a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Sneaker Shoes</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$87<span>$92</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-danger">-11%</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2"
+                        src="img/product/8.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Chair</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$21<span>$25</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card -->
+              <div class="col-6 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge rounded-pill badge-warning">On Sale</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2"
+                        src="img/product/4.png" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html">Polo Shirts</a>
+                    <!-- Product Price -->
+                    <p class="sale-price">$38<span>$41</span></p>
+                    <!-- Rating -->
+                    <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <!-- Add to Cart --><a class="btn btn-success btn-sm" href="#"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CTA Area -->
+        <div class="container">
+          <div class="cta-text dir-rtl p-4 p-lg-5">
+            <div class="row">
+              <div class="col-9">
+                <h4 class="text-white mb-1">20% discount on women's care items</h4>
+                <p class="text-white mb-2 opacity-75">Offer will continue till this Friday.</p><a
+                  class="btn btn-warning" href="#">Grab this offer</a>
+              </div>
+            </div><img src="img/bg-img/make-up.png" alt="">
+          </div>
+        </div>
+        <!-- Weekly Best Sellers-->
+        <div class="weekly-best-seller-area py-3">
+          <div class="container">
+            <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
+              <h6>Weekly Best Sellers</h6><a class="btn p-0" href="shop-list.html">
+                View All<i class="ms-1 fa-solid fa-arrow-right-long"></i></a>
+            </div>
+            <div class="row g-2">
+              <!-- Weekly Product Card -->
+              <div class="col-12 ">
+            {% for product in top_5_products %}
+            <div class="horizontal-product-card p-2 shadow-sm bg-white">
+              <div class="d-flex align-items-center">
+                <div class="product-thumbnail-side">
+                  <!-- Thumbnail --><a class="product-thumbnail shadow-sm d-block" href="single-product.html"><img
+                      src="{% static 'costomer/img/product/18.png'%}" alt=""></a>
+                </div>
+                <div class="product-description">
+                  <!-- Wishlist  --><a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"></i></a>
+                  <!-- Product Title --><a class="product-title d-block" href="single-product.html">Nescafe Coffee
+                    Jar</a>
+                  <!-- Price -->
+                  <p class="sale-price"><i class="fa-solid fa-dollar-sign"></i>$64<span>$89</span></p>
+                  <!-- Rating -->
+                  <div class="product-rating"><i class="fa-solid fa-star"></i>4.88 <span class="ms-1">(39
+                      review)</span></div>
+                </div>
+              </div>
+            </div>
+            <br>
+            {% endfor %}
+              </div>
+          
+              <!-- Weekly Product Card -->
+            
+              
+            </div>
+          </div>
+        </div>
+        <!-- Discount Coupon Card-->
+        <div class="container">
+          <div class="discount-coupon-card p-4 p-lg-5 dir-rtl">
+            <div class="d-flex align-items-center">
+              <div class="discountIcon"><img class="w-100" src="{% static 'costomer/img/core-img/discount.png'%}" alt=""></div>
+              <div class="text-content">
+                <h4 class="text-white mb-1">Get 20% discount!</h4>
+                <p class="text-white mb-0">To get discount, enter the<span class="px-1 fw-bold">GET20</span>code on the
+                  checkout page.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Featured Products Wrapper-->
+        <div class="featured-products-wrapper py-3">
+          <div class="container">
+            <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
+              <h6>Featured Products</h6><a class="btn p-0" href="featured-products.html">View All<i
+                  class="ms-1 fa-solid fa-arrow-right-long"></i></a>
+            </div>
+            <div class="row g-2">
+          
+      {% for product in featured_products %}
+
+
+              <!-- Featured Product Card-->
+              <div class="col-4">
+                <div class="card featured-product-card">
+                  <div class="card-body">
+                    <!-- Badge--><span class="badge badge-warning custom-badge"><i class="fa-solid fa-star"></i></span>
+                    <div class="product-thumbnail-side">
+                      <!-- Thumbnail --><a class="product-thumbnail d-block" href="{% url 'product_details' product.id %}"><img
+                          src="{{product.pictures.all.0.product_picture.url}}" alt=""></a>
+                    </div>
+                    <div class="product-description">
+                      <!-- Product Title --><a class="product-title d-block text-capitalize" href="{% url 'product_details' product.id %}">{{product.product_name}}</a>
+                      <!-- Price -->
+                      <p class="sale-price text-capitalize ">{{product.price}} Tsh</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+      
+      {% endfor %}
+
+
+            </div>
+          </div>
+        </div>
+        <div class="pb-3">
+          <div class="container">
+            <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
+              <h6>Collections</h6><a class="btn p-0" href="#">
+                View All<i class="ms-1 fa-solid fa-arrow-right-long"></i></a>
+            </div>
+            <!-- Collection Slide-->
+            <div class="collection-slide owl-carousel">
+              <!-- Collection Card-->
+              <div class="card collection-card"><a href="single-product.html"><img src="img/product/17.jpg" alt=""></a>
+                <div class="collection-title"><span>Women</span><span class="badge bg-danger">9</span></div>
+              </div>
+              <!-- Collection Card-->
+              <div class="card collection-card"><a href="single-product.html"><img src="img/product/19.jpg" alt=""></a>
+                <div class="collection-title"><span>Men</span><span class="badge bg-danger">29</span></div>
+              </div>
+              <!-- Collection Card-->
+              <div class="card collection-card"><a href="single-product.html"><img src="img/product/21.jpg" alt=""></a>
+                <div class="collection-title"><span>Kids</span><span class="badge bg-danger">4</span></div>
+              </div>
+              <!-- Collection Card-->
+              <div class="card collection-card"><a href="single-product.html"><img src="img/product/22.jpg" alt=""></a>
+                <div class="collection-title"><span>Gadget</span><span class="badge bg-danger">11</span></div>
+              </div>
+              <!-- Collection Card-->
+              <div class="card collection-card"><a href="single-product.html"><img src="img/product/23.jpg" alt=""></a>
+                <div class="collection-title"><span>Foods</span><span class="badge bg-danger">2</span></div>
+              </div>
+              <!-- Collection Card-->
+              <div class="card collection-card"><a href="single-product.html"><img src="img/product/24.jpg" alt=""></a>
+                <div class="collection-title"><span>Sports</span><span class="badge bg-danger">5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     {% include 'costomer/right-bar.html' %}
+
+
+    </div>
+    {% endblock  %}
