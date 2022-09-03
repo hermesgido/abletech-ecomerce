@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 
 # Create your models here.
@@ -91,7 +90,6 @@ class Shops(models.Model):
 
     def __str__(self) -> str:
         return self.shop_name
-
 
 class Sub_Categories(models.Model):
     shop_category_id = models.ForeignKey("Shop_Categories", null=True, verbose_name=_(
@@ -224,7 +222,7 @@ class Buyer(models.Model):
 
         def __str__(self):
             return self.user_id.username + " " + "Order"
-#
+
 
 
 class Order(models.Model):
